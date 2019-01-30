@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+    <script src="render.js"></script>
+    <script src="app.js"></script>
+    <script src="musixmatch.js"></script>
+    <script src="spotify.js"></script>
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Muugle</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-4">
+                    <li class="nav-item">
+                        <a class="nav-link" data-value="about" href="#">Profile</a> </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-value="portfolio" href="#">Playlists</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Search form -->
+        <div class="row md-form mt-0 mr-4">
+            <input class="form-control" type="text" id="searchBar" placeholder="Search" aria-label="Search">
+            <div class="col-sm-4 spotifyPlayer">
+                Spotify Player Here
+            </div>
+            <div class="col-sm-4 playlistDisplay">
+                Spotify Playlists Here
+            </div>
+            <div class="col-sm-4 aritstInfo">
+                Aritst lyrics and information Here - this info will be placed below the spotify data
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
