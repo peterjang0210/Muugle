@@ -1,15 +1,22 @@
 const searchSpotify = function () {
     const userInput = $("#searchBar").val().trim();
     if (userInput.includes(",")) {
-        const trackName = userInput.substring(0, userInput.indexOf(","));
-        const artistName = userInput.substring(userInput.indexOf(",") + 1);
-        spotifyAPI(trackName, artistName);
-        $('#searchBar').val("");
+        if(userInput.substring(0, userInput.indexOf(",")).length > 1){
+            const trackName = userInput.substring(0, userInput.indexOf(","));
+            const artistName = userInput.substring(userInput.indexOf(",") + 1);
+            queryTrack(trackName, artistName);
+            $('#searchBar').val("");
+        }
+        else{
+            const artistName = userInput.substring(1);
+            queryArtist(artistName);
+            $('#searchBar').val("");
+        }
     }
     else{
         const trackName = userInput;
         const artistName = "";
-        spotifyAPI(trackName, artistName);
+        queryTrack(trackName, artistName);
         $('#searchBar').val("");
     }
 }
