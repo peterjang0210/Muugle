@@ -30,6 +30,7 @@ const infoList = [];
 
 const render = function (response) {
     $(".songList").empty();
+    infoList.length = 0;
     const trackArray = response.tracks.items;
     for (let i = 0; i < trackArray.length; i++){
         infoList.push({
@@ -44,5 +45,6 @@ const render = function (response) {
 }
 
 const playSong = function () {
-    $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/1zB4vmk8tFRmM9UULNzbLB" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    $('.spotifyPlayer').empty();
+    $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${this.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
