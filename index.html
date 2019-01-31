@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="spotify.js"></script>
+    <script src="musixmatch.js"></script>
+    <script src="render.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Muugle</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-4">
+                    <li class="nav-item">
+                        <a class="nav-link" data-value="about" href="#">Profile</a> </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-value="portfolio" href="#">Playlists</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <form class="col-sm-3 formInfo">
+            <div class="form-group">
+                <label for="inputSearch">Search here</label>
+                <input class="form-control" type="text" id="searchBar" placeholder="Song Name, Artist Name..." aria-label="Search">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div class="container-fluid text-center">
+            <div class="row content">
+
+                <div class="col-sm-3 mt-4 ml-3 mr-3 sidenav">
+                    <p><a href="#">Link</a></p>
+                    <p><a href="#">Link</a></p>
+                    <p><a href="#">Link</a></p>
+                </div>
+                <div class="col-sm-6">
+                    <h1>Spotfiy Playlist</h1>
+                    <p>Information here</p>
+                    <h1>Spotfiy Player</h1>
+                    <p>Information here</p>
+                    <hr>
+                </div>
+                <div class="col-sm-8">
+                    <h3>Test</h3>
+                    <p>Lyric Information Here...</p>
+                </div>
+            </div>
+            <a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Log in to Spotify</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Footer
+    </footer>
+</body>
+
+</html>
