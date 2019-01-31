@@ -10,10 +10,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="spotify.js"></script>
     <script src="musixmatch.js"></script>
     <script src="render.js"></script>
@@ -21,55 +19,75 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#">Muugle</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-4">
-                    <li class="nav-item">
-                        <a class="nav-link" data-value="about" href="#">Profile</a> </li>
-                    <li class="nav-item">
-                        <a class="nav-link " data-value="portfolio" href="#">Playlists</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <form class="col-sm-3 formInfo">
-            <div class="form-group">
-                <label for="inputSearch">Search here</label>
-                <input class="form-control" type="text" id="searchBar" placeholder="Song Name, Artist Name..." aria-label="Search">
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-        <div class="container-fluid text-center">
-            <div class="row content">
-
-                <div class="col-sm-3 mt-4 ml-3 mr-3 sidenav">
-                    <p><a href="#">Link</a></p>
-                    <p><a href="#">Link</a></p>
-                    <p><a href="#">Link</a></p>
+    <div class="jumbotron text-center">
+        <h1 class="text-center">Welcome to Muugle</h1>
+    </div>
+    <wrapper class="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-secondary rounded ml-3 mr-3">
+                <a class="navbar-brand ml-auto" href="#">Muugle</a>
+                <form class="formInfo">
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="searchBar" placeholder="Song Name or Artist..."
+                            aria-label="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" data-value="about" href="#">Profile</a> </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-value="portfolio" href="#">Playlists</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-sm-6">
-                    <h1>Spotfiy Playlist</h1>
-                    <p>Information here</p>
-                    <h1>Spotfiy Player</h1>
-                    <p>Information here</p>
-                    <hr>
-                </div>
-                <div class="col-sm-8">
-                    <h3>Test</h3>
-                    <p>Lyric Information Here...</p>
+            </nav>
+        </header>
+
+        <main>
+
+            <div class="container-fluid text-center">
+                <div class="row content">
+                    <div class="col-sm-2 mt-4 ml-3 mr-3 sidenav">
+                        <p><a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Login
+                                to Spotify</a></p>
+                    </div>
+                    <div class="col-sm-3 spotifyPlayer">
+                        <h1>Spotfiy Player</h1>
+                        <p>Information here</p>
+                        <hr>
+                    </div>
+                    <div class="col-sm-3 songList">
+                        <h1>Spotfiy Songlist</h1>
+                        <p>Information here</p>
+                        <hr>
+                    </div>
+                    <div class="col-sm-3 recentlySearched">
+                        <h1>Recently Played</h1>
+                        <p>Information here</p>
+                        <hr>
+                        <ul>
+                            <li>Test</li>
+                            <li>Test</li>
+                            <li>Test</li>
+                            <li>Test</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-centered lyricInfo">
+                        <hr>
+                        <h3>Test</h3>
+                        <p>Lyric Information Here...</p>
+                    </div>
                 </div>
             </div>
-            <a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Log in to Spotify</a>
-        </div>
-    </main>
-
+        </main>
+    </wrapper>
     <footer class="footer">
-        Footer
+        <div class="container">
+            <span class="text-muted">Footer</span>
+        </div>
+
     </footer>
 </body>
 
