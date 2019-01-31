@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
 }
 
 .navbar-toggler {
@@ -10,9 +10,41 @@
     border-radius: .25rem;
     position: relative;
 
-}
+} */
 
 #searchBar {
     position: relative;
-    /* width: 300px; */
+    width: auto;
+    align-content: center;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: auto}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+    width: auto;
+  }
+  
+  /* Set black background color, white text and some padding */
+  .footer {
+    position: fixed;
+  }
+
+
+#artistInfo {
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    border: gray solid 2px;
+    margin-top: 50px;
 }
