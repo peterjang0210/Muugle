@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+    <!--<script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>-->
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="render.js"></script>
     <script src="app.js"></script>
-    <script src="musixmatch.js"></script>
+    <script src="musicmatch.js"></script>
     <script src="spotify.js"></script>
 </head>
 
@@ -36,6 +40,9 @@
         <!-- Search form -->
         <div class="row md-form mt-0 mr-4">
             <input class="form-control" type="text" id="searchBar" placeholder="Search" aria-label="Search">
+            <!--testing button-->
+            <button type="submit" id="testButton">test</button>
+            <!--testing button-->
             <div class="col-sm-4 spotifyPlayer">
                 Spotify Player Here
             </div>
