@@ -21,6 +21,15 @@ const spotifyAPI = function (track, artist) {
         },
         success: function (response) {
             console.log(response);
+            render(response);
         }
     })
+}
+
+const render = function (response) {
+    const trackArray = response.tracks.items;
+    for (let i = 0; i < trackArray.length; i++){
+        $("#songList").append(`<p>Song:${trackArray[i].name}</p>
+        <p>Artist:${trackArray[i].artists[0].name}`);
+    }
 }
