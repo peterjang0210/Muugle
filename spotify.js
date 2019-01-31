@@ -26,10 +26,23 @@ const spotifyAPI = function (track, artist) {
     })
 }
 
+const infoList = [];
+
 const render = function (response) {
+    $("#songList").empty();
     const trackArray = response.tracks.items;
     for (let i = 0; i < trackArray.length; i++){
-        $("#songList").append(`<button id="${trackArray[i].name}${trackArray[i].artists[0].name}"><p>Song:${trackArray[i].name}</p>
-        <p>Artist:${trackArray[i].artists[0].name}</p></button>`);
+        infoList.push({
+            track: trackArray[i].name,
+            artist: trackArray[i].artists[0].name,
+            trackID: trackArray[i].id
+        })
+        $("#songList").append(`<button id="${infoList[i].trackID}"><p>Song:${infoList[i].track}</p>
+        <p>Artist:${infoList[i].artist}</p></button>`);
+        $(`#${infoList[i].trackID}`).on('click', playSong);
     }
+}
+
+const playSong = function () {
+    $("#spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/1zB4vmk8tFRmM9UULNzbLB" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }

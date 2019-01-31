@@ -10,10 +10,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,7 +34,8 @@
         <form class="col-sm-3 formInfo">
             <div class="form-group">
                 <label for="inputSearch">Search here</label>
-                <input class="form-control" type="text" id="searchBar" placeholder="Song Name, Artist Name..." aria-label="Search">
+                <input class="form-control" type="text" id="searchBar" placeholder="Song Name, Artist Name..."
+                    aria-label="Search">
             </div>
             <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
         </form>
@@ -48,19 +47,21 @@
                     <p><a href="#">Link</a></p>
                     <p><a href="#">Link</a></p>
                 </div>
-                <div class="col-sm-6" id="songList">
+                <div class="col-sm-6">
                     <h1>Spotfiy Playlist</h1>
                     <p>Information here</p>
                     <h1>Spotfiy Player</h1>
-                    <p>Information here</p>
+                    <div id="spotifyPlayer"></div>
                     <hr>
+                    <div id="songList"></div>
                 </div>
                 <div class="col-sm-8">
                     <h3>Test</h3>
                     <p>Lyric Information Here...</p>
                 </div>
             </div>
-            <a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Log in to Spotify</a>
+            <a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Log
+                in to Spotify</a>
         </div>
     </main>
 
