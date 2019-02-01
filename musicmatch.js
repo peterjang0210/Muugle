@@ -15,34 +15,40 @@ const lyricsBlock = function (lyricsBody) {
 const infoPull = function (name) {
 
     //temp testing url
-    const domainURL = `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1`;
-    const trackListEP = `/track.search?q_track=${name}&apikey=c480c2776b141e05a35b7a8b9f54c769`;
-
-    // refined by artist name version
-    // const trackListEP = `/track.search?q_track=${name}&q_artist=${artist}&apikey=c480c2776b141e05a35b7a8b9f54c769`;
+    const domainURL = `https://api.genius.com`;
+    const trackListEP = `/search?q=${name}&access_token=h-ekdFJHN-7FvdhejCym_JwHF96ugsaz41cHDfwAQBrtkHqLPV9NepE0aAnPPalu`;
 
     $.ajax({
         url: `${domainURL}${trackListEP}`,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        const dataStart = response.message.body.trackList[0].track;
-        const trackID = dataStart.track_id;
-        const lyricsEP = `/track.lyrics.get?track_id=${trackID}`
+        const dataStart = response.response.hits[0].result;
         //get meta
-        const songName = dataStart.track_name;
-        const artistName = dataStart.artist_name;
-        const albumName = dataStart.album_name;
+        const songName = dataStart.title_with_featured;
+        const artistName = dataStart.primary_artist.name;
+        console.log(artistName);
+        console.log(songName);
 
-        metaBlock(songName, artistName, albumName);
+        //get album
+        $.ajax({
+            url: `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+            const albumName = response.track.album.title;
+            //create meta block
+            metaBlock(songName, artistName, albumName);
+        })
 
+        
         //get lyrics
         $.ajax({
-            url: `${domainURL}${lyricsEP}`,
+            url: `https://api.lyrics.ovh/v1/${artistName}/${songName}`,
             method: "GET"
         }).then(function (response) {
-            const dataStart = response.message.body.lyrics;
-            lyricsBlock(dataStart.lyrics_body);
+            //create lyrics block
+            lyricsBlock(response.lyrics);
         })
     })
 }
@@ -61,58 +67,7 @@ const testEmpty = function (event) {
     $("#metaLyrics").empty();
 }
 
-// infoPull("drake");
+infoPull("hello");
 
 $("#testButton").on("click", testEmpty);
-
-
-{/* <button class="button btn-primary" type="submit" id="testButton">test</button> */ }
-{/* <input class="form-group" type="text" id="searchBar" placeholder="Search" aria-label="Search"> */ }
-
-
-// const createCORSRequest = function (method, url) {
-//     let xhr = new XMLHttpRequest();
-//     if ("withCredentials" in xhr) {
-//         xhr.open(method, url, true);
-//     } else if (typeof XDomainRequest != "undefined") {
-//         xhr = new XDomainRequest();
-//         xhr.open(method, url);
-//     } else {
-//         xhr = null;
-//     }
-//     return xhr;
-
-//     function getTitle(text) {
-//         return text.match('<title>(.*)?</title>')[1];
-//     }
-
-
-//     function makeCorsRequest() {
-//         // This is a sample server that supports CORS.
-//         var url = 'http://api.musixmatch.com/ws/1.1/track.search?q_track=drake&q_artist=ultimate&apikey=c480c2776b141e05a35b7a8b9f54c769';
-
-//         var xhr = createCORSRequest('GET', url);
-//         console.log(xhr)
-//         if (!xhr) {
-//             alert('CORS not supported');
-//             return;
-//         }
-//     }
-
-//     // Response handlers.
-//     xhr.onload = function () {
-//         var text = xhr.responseText;
-//         var title = getTitle(text);
-//         console.log(title);
-//         alert('Response from CORS request to ' + url + ': ' + title);
-//     };
-
-//     xhr.onerror = function () {
-//         alert('Woops, there was an error making the request.');
-//     };
-
-//     xhr.send();
-// }
-
-
 
