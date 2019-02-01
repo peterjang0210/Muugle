@@ -97,7 +97,7 @@ const renderTrack = function (response) {
         <button data-trackID="${infoList[i].trackID}" class="playSong">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button></div>`);
     }
 }
 
