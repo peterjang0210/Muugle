@@ -4,7 +4,7 @@ const queryTrack = function (track, artist) {
     const accessToken = window.location.hash.substring(index1, index2);
     let queryURL = "";
 
-    if (track !== "" && artist === "") {
+    if (artist === "") {
         queryURL = `https://api.spotify.com/v1/search?q=${track}&type=track`;
     }
     else {
@@ -58,7 +58,6 @@ const renderTrack = function (response) {
 }
 
 const renderArtist = function (response) {
-    console.log(response);
     $(".songList").empty();
     infoList.length = 0;
     const artistArray = response.artists.items;;
