@@ -1,4 +1,5 @@
-const searchSpotify = function () {
+const searchSpotify = function (e) {
+    e.preventDefault();
     const userInput = $("#searchBar").val().trim();
     if (userInput.includes(",")) {
         if(userInput.substring(0, userInput.indexOf(",")).length > 1){
