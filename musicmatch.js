@@ -1,15 +1,16 @@
 const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
-    blockTemplate.append(`<h1 class="songName">${songName}</h1><h2 class="albumName">${albumName}<h2><h3 class="artistName">${artistName}<h3>`);
-    $(".aritstInfo").append(blockTemplate);
+    blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
+    $("p").append(blockTemplate);
+    console.log(blockTemplate);
 }
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
-    blockTemplate.append(`<p class="lyricsBody">${lyricsBody}</p>`);
-    $(".aritstInfo").append(blockTemplate);
+    blockTemplate.append(`<p class="lyricsBody">Lyrics:<p class"lyricsBody">${lyricsBody}</p></p>`);
+    $("p").append(blockTemplate);
+    console.log(blockTemplate);
 }
-
 
 
 const infoPull = function (name) {
@@ -55,19 +56,19 @@ const infoPull = function (name) {
 
 //testing area
 
-const render = function (event) {
-    event.preventDefault();
-    const searchInput = $(".textInput").val();
-    $(".artistInfo").empty();
-    infoPull(searchInput);
-}
+// const render = function (event) {
+//     event.preventDefault();
+//     const searchInput = $(".textInput").val();
+//     $(".artistInfo").empty();
+//     infoPull(searchInput);
+// }
 
-const testEmpty = function (event) {
-    // event.preventDefault();
-    $("#metaLyrics").empty();
-}
+// const testEmpty = function (event) {
+//     // event.preventDefault();
+//     $("#metaLyrics").empty();
+// }
 
-infoPull("hello");
+infoPull("never gonna give you up");
 
-$("#testButton").on("click", testEmpty);
+// $("#testButton").on("click", testEmpty);
 
