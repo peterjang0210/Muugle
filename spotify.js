@@ -75,7 +75,7 @@ const queryPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function (response) {
-            embedPlaylist(response);
+            renderPlaylists(response);
         }
     })
 }
@@ -115,8 +115,15 @@ const renderArtist = function (response) {
     }
 }
 
-const embedPlaylist = function (response) {
-    $("#playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+const renderPlaylists = function (response){
+    for(let i = 0; i < response.items.length; i++){
+        $("#playlist").prepend(`<button id="${response.items[i].id}">${response.items[i].name}</button>`);
+        $(`#${response.items[i].id}`).on("click", embedPlaylist);
+    }
+}
+
+const embedPlaylist = function () {
+    $("#playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${this.id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 }
 
 const addToPlaylist = function () {
