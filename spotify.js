@@ -116,19 +116,22 @@ const renderArtist = function (response) {
 }
 
 const embedPlaylist = function (response) {
-    $("#playlist").append(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="200" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+    $("#playlist").empty();
+    $("#playlist").append(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 }
 
 const addPlaylist = function () {
-    const trackURI = $(this).attr("data-uri");
+    const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
     const accessToken = parseAccessToken();
     const playlistID = "5aetR4FSUQMjqNIjJnJVAa";
     $.ajax({
         url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${trackURI}`,
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },
         method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + accessToken
+        }
     })
 }
 
