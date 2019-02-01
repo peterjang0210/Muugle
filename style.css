@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/* .navbar {
+=======
 /* #searchBar {
     position: relative;
     width: auto;
@@ -17,6 +20,7 @@
 .row.content {
     height: 450px;
     margin-top: 10px;
+>>>>>>> 53f20c14ba77fcd484b975a76df9feb023a2c045
 }
   
 .sidenav {
@@ -30,10 +34,14 @@ html, body {
     height: 100%;
 }
 
+<<<<<<< HEAD
+} */
+=======
 body {
     display: flex;
     flex-direction: column;
 }
+>>>>>>> 53f20c14ba77fcd484b975a76df9feb023a2c045
 
 .content {
     flex: 1 0 auto;
@@ -50,6 +58,39 @@ body {
 
 .form-group, .btn {
     position: relative;
+<<<<<<< HEAD
+    width: auto;
+    align-content: center;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  
+  .row.content {height: auto}
+  
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+    width: auto;
+  }
+  
+  .footer {
+    position: fixed;
+  }
+
+
+#artistInfo {
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    border: gray solid 2px;
+    margin-top: 50px;
+}
+=======
 }
 
 .footer {
@@ -65,3 +106,4 @@ body {
     text-align: center;
 }
 
+>>>>>>> 53f20c14ba77fcd484b975a76df9feb023a2c045
