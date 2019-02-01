@@ -1,20 +1,20 @@
-const searchSpotify = function (e) {
-    e.preventDefault();
+const searchSpotify = function (event) {
+    event.preventDefault();
     const userInput = $("#searchBar").val().trim();
     if (userInput.includes(",")) {
-        if(userInput.substring(0, userInput.indexOf(",")).length > 1){
+        if (userInput.substring(0, userInput.indexOf(",")).length > 1) {
             const trackName = userInput.substring(0, userInput.indexOf(","));
             const artistName = userInput.substring(userInput.indexOf(",") + 1);
             queryTrack(trackName, artistName);
             $('#searchBar').val("");
         }
-        else{
+        else {
             const artistName = userInput.substring(1);
             queryArtist(artistName);
             $('#searchBar').val("");
         }
     }
-    else{
+    else {
         const trackName = userInput;
         const artistName = "";
         queryTrack(trackName, artistName);
@@ -80,8 +80,6 @@ const queryPlaylist = function () {
     })
 }
 
-
-
 const infoList = [];
 
 const renderTrack = function (response) {
@@ -92,11 +90,14 @@ const renderTrack = function (response) {
         infoList.push({
             track: trackArray[i].name,
             artist: trackArray[i].artists[0].name,
-            trackID: trackArray[i].id
+            trackID: trackArray[i].id,
+            uri: trackArray[i].uri
         })
-        $(".songList").append(`<button id="${infoList[i].trackID}"><p>Song:${infoList[i].track}</p>
-        <p>Artist:${infoList[i].artist}</p></button>`);
-        $(`#${infoList[i].trackID}`).on('click', playSong);
+        $(".songList").append(`<div class="btn-group">
+        <button data-trackID="${infoList[i].trackID}" class="playSong">
+        <p>Song:${infoList[i].track}</p>
+        <p>Artist:${infoList[i].artist}</p></button>
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button></div>`);
     }
 }
 
@@ -114,9 +115,30 @@ const renderArtist = function (response) {
     }
 }
 
+const embedPlaylist = function (response) {
+    $("#playlist").empty();
+    $("#playlist").append(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+}
+
+const addPlaylist = function () {
+    const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
+    const accessToken = parseAccessToken();
+    const playlistID = "5aetR4FSUQMjqNIjJnJVAa";
+    $.ajax({
+        url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${trackURI}`,
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + accessToken
+        }
+    })
+}
+
 const playSong = function () {
+    const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
-    $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${this.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
 const playPlaylist = function () {
@@ -126,3 +148,5 @@ const playPlaylist = function () {
 
 $("#searchBtn").on("click", searchSpotify);
 $("#addBtn").on("click", queryPlaylist);
+$(`.songList`).on('click', ".playSong", playSong);
+$(`.songList`).on('click', ".addToPlaylist", addPlaylist);
