@@ -97,7 +97,7 @@ const renderTrack = function (response) {
         <button data-trackID="${infoList[i].trackID}" class="playSong">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button></div>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button>`);
     }
 }
 
@@ -116,11 +116,10 @@ const renderArtist = function (response) {
 }
 
 const embedPlaylist = function (response) {
-    $("#playlist").empty();
-    $("#playlist").append(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+    $("#playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 }
 
-const addPlaylist = function () {
+const addToPlaylist = function () {
     const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
     const accessToken = parseAccessToken();
     const playlistID = "5aetR4FSUQMjqNIjJnJVAa";
@@ -128,8 +127,6 @@ const addPlaylist = function () {
         url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${trackURI}`,
         method: "POST",
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
             'Authorization': 'Bearer ' + accessToken
         }
     })
@@ -149,4 +146,4 @@ const playPlaylist = function () {
 $("#searchBtn").on("click", searchSpotify);
 $("#addBtn").on("click", queryPlaylist);
 $(`.songList`).on('click', ".playSong", playSong);
-$(`.songList`).on('click', ".addToPlaylist", addPlaylist);
+$(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
