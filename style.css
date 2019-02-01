@@ -17,6 +17,17 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
 }
 
 #artistInfo {
@@ -32,11 +43,42 @@ html, body {
     overflow: hidden;
     height: auto;
     position: relative;
+    width: auto;
+    align-content: center;
 }
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+  
+.row.content {height: auto}
+  
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+    width: auto;
+}
+  
+.footer {
+    position: fixed;
+}
+
+
+#artistInfo {
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    border: gray solid 2px;
+    margin-top: 50px;
+}
+
 
 .row {
     margin-top: 10px;
- }
+}
 
 .footer {
     height: 60px;
@@ -69,3 +111,4 @@ html, body {
         margin-top: 20px;
     }
 }
+

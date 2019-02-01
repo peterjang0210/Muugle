@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="spotify.js"></script>
-    <script src="musixmatch.js"></script>
-    <script src="render.js"></script>
-    <script src="app.js"></script>
 </head>
 
 <body>
@@ -31,7 +24,11 @@
                         <input class="form-control" type="text" id="searchBar" placeholder="Song Name or Artist..."
                             aria-label="Search">
                     </div>
+<<<<<<< HEAD
                     <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+=======
+                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+>>>>>>> 26b4d1574d12fba4c13913328b6b6758f3c754ca
                 </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
@@ -46,7 +43,6 @@
         </header>
 
         <main>
-
             <div class="container-fluid text-center">
                 <div class="row content-fluid justify-content-end">
                     <div class="col-sm-2 mt-4 ml-3 mr-3 sidenav">
@@ -69,14 +65,21 @@
                         </ul> -->
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 spotifyPlayer">
+                                to Spotify</a></p>
+                        <button class="btn btn-primary" id="addBtn">Add Playlist</button>
+                        <div id="playlist"></div>
+                    </div>
+                    <div class="col-sm-3">
                         <h1>Spotfiy Player</h1>
                         <p>Information here</p>
                         <hr>
+                        <div class=spotifyPlayer></div>
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 songList">
                         <h1>Spotfiy Songlist</h1>
                         <p>Information here</p>
                         <hr>
+                        <div class="songList"></div>
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 recentlySearched">
                         <h1>Recently Played</h1>
@@ -106,7 +109,12 @@
             </div>
         </div>
     <div>
-        
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="spotify.js"></script>
+    <script src="musicmatch.js"></script>
+    <script src="render.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
