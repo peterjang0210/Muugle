@@ -1,7 +1,35 @@
-const queryTrack = function (track, artist) {
+const searchSpotify = function () {
+    const userInput = $("#searchBar").val().trim();
+    if (userInput.includes(",")) {
+        if(userInput.substring(0, userInput.indexOf(",")).length > 1){
+            const trackName = userInput.substring(0, userInput.indexOf(","));
+            const artistName = userInput.substring(userInput.indexOf(",") + 1);
+            queryTrack(trackName, artistName);
+            $('#searchBar').val("");
+        }
+        else{
+            const artistName = userInput.substring(1);
+            queryArtist(artistName);
+            $('#searchBar').val("");
+        }
+    }
+    else{
+        const trackName = userInput;
+        const artistName = "";
+        queryTrack(trackName, artistName);
+        $('#searchBar').val("");
+    }
+}
+
+const parseAccessToken = function () {
     const index1 = window.location.hash.indexOf("=") + 1;
     const index2 = window.location.hash.indexOf("&");
     const accessToken = window.location.hash.substring(index1, index2);
+    return accessToken;
+}
+
+const queryTrack = function (track, artist) {
+    const accessToken = parseAccessToken();
     let queryURL = "";
 
     if (artist === "") {
@@ -23,9 +51,7 @@ const queryTrack = function (track, artist) {
 }
 
 const queryArtist = function (artist) {
-    const index1 = window.location.hash.indexOf("=") + 1;
-    const index2 = window.location.hash.indexOf("&");
-    const accessToken = window.location.hash.substring(index1, index2);
+    const accessToken = parseAccessToken();
     const queryURL = `https://api.spotify.com/v1/search?q=${artist}&type=artist`;
 
     $.ajax({
@@ -38,6 +64,22 @@ const queryArtist = function (artist) {
         }
     })
 }
+
+const queryPlaylist = function () {
+    const accessToken = parseAccessToken();
+
+    $.ajax({
+        url: "https://api.spotify.com/v1/me/playlists",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function (response) {
+            embedPlaylist(response);
+        }
+    })
+}
+
+
 
 const infoList = [];
 
@@ -80,3 +122,6 @@ const playPlaylist = function () {
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/artist/${this.id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
+
+$("#searchBtn").on("click", searchSpotify);
+$("#addBtn").on("click", queryPlaylist);
