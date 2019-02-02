@@ -139,6 +139,8 @@ const playSong = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    $('#recentlyPlayed').append(`<li><iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><li>`);
+    cookieStore(trackID);
 }
 
 const playPlaylist = function () {
