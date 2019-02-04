@@ -45,7 +45,7 @@
                         <p><a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a>
                         </p>
-                        <!-- <ul>
+                        <ul>
                             <li>test</li>
                             <li>test</li>
                             <li>test</li>
@@ -58,7 +58,7 @@
                             <li>test</li>
                             <li>test</li>
                             <li>test</li>
-                        </ul> -->
+                        </ul>
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
                         <input type="text" placeholder="Playlist Name" id="newPlaylist">
@@ -82,13 +82,9 @@
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 recentlySearched">
                         <h1>Recently Played</h1>
-                        <p>Information here</p>
+                        <p>history of your recently played songs</p>
                         <hr>
-                        <ul>
-                            <li>Test</li>
-                            <li>Test</li>
-                            <li>Test</li>
-                            <li>Test</li>
+                        <ul id="recentlyPlayed">
                         </ul>
                     </div>
                     <div class="col-xs-8 col-sm-4 col-md-10 col-lg-8 col-centered lyricInfo">
@@ -101,19 +97,14 @@
         </main>
     </wrapper>
 
-    <div class="footer mb-0">
-        <div class="row">
-            <div class="col-xl-12">
-                <h6>Footer</h6>
-            </div>
-        </div>
-        <div>
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-            <script src="spotify.js"></script>
-            <!-- <script src="musicmatch.js"></script> -->
-            <script src="render.js"></script>
-            <script src="app.js"></script>
+    </footer>
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="cookie.js"></script>
+    <script src="spotify.js"></script>
+    <script src="musicmatch.js"></script>
+    <script src="render.js"></script>
 </body>
 
 </html>
