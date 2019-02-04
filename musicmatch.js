@@ -7,7 +7,7 @@ const metaBlock = function (songName, artistName, albumName) {
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
-    blockTemplate.append(`<p class="lyricsBody">Lyrics:<p class"lyricsBody">${lyricsBody}</p></p>`);
+    blockTemplate.append(`<p class="lyricsSection">Lyrics:<p class="lyricsBody">${lyricsBody}</p></p>`);
     $("#lyricsBlock").html(blockTemplate);
     console.log(blockTemplate);
 }
@@ -68,7 +68,7 @@ const infoPull = function (song, artist) {
     infoRefine(songName, artistName);
 }
 
-infoPull("rain & thunder", "thunderstorm sound bank");
+infoPull("7 rings", "ariana grande");
 
 //testing and legacy area
 
