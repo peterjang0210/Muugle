@@ -68,7 +68,7 @@ const infoPull = function (song, artist) {
     infoRefine(songName, artistName);
 }
 
-infoPull("rain & thunder", "thunderstorm sound bank");
+infoPull("7 rings", "ariana grande");
 
 //testing and legacy area
 
