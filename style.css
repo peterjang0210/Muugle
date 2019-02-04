@@ -16,10 +16,9 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: scroll;
 
 }
-
 
 body {
     display: flex;
@@ -40,7 +39,7 @@ body {
 }
 
 .wrapper, .row {
-    overflow: hidden;
+    overflow: scroll;
     height: auto;
     position: relative;
     width: auto;
@@ -90,7 +89,7 @@ body {
     margin-bottom: -150px;
     bottom: 0; 
     position: relative;
-    overflow: hidden;
+    overflow: scroll;
     margin-top: 60px;
 }
 
