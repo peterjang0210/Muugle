@@ -138,22 +138,37 @@ const addToPlaylist = function () {
     })
 }
 
-// const createPlaylist = function (){
-//     const accessToken = parseAccessToken();
-//     const playlistName = $("#createBtn").val();
-//     console.log(playlistName);
-//     $.ajax({
-//         url: `https://api.spotify.com/v1/playlists`,
-//         method: "POST",
-//         data: {
-//             "Name" : playlistName
-//         },
-//         headers: {
-//             'Authorization': 'Bearer ' + accessToken,
-//             "Content-Type": "application/json"
-//         }
-//     })
-// }
+const getUserID = function () {
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: "https://api.spotify.com/v1/me",
+        headers:{
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function(response) {
+            createPlaylist(response);
+        }
+    })
+}
+
+const createPlaylist = function (response){
+    const accessToken = parseAccessToken();
+    const playlistName = $("#newPlaylist").val();
+    const userID = response.id;
+    console.log(userID);
+    console.log(playlistName);
+    $.ajax({
+        url: `https://api.spotify.com/v1/users/${userID}/playlists`,
+        method: "POST",
+        data: {
+            "Name" : playlistName
+        },
+        headers: {
+            'Authorization': 'Bearer ' + accessToken,
+            "Content-Type": "application/json"
+        }
+    })
+}
 
 const playSong = function () {
     const trackID = $(this).attr("data-trackID");
@@ -166,9 +181,11 @@ const playPlaylist = function () {
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/artist/${this.id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
+
+
 $("#searchBtn").on("click", searchSpotify);
+$("#createBtn").on("click", getUserID);
 $("#displayBtn").on("click", queryPlaylist);
-// $("#createBtn").on("click", createPlaylist);
 $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(`.playlist`).on("click",  ".addPlaylist", embedPlaylist);
