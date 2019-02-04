@@ -97,7 +97,7 @@ const renderTrack = function (response) {
         <button data-trackID="${infoList[i].trackID}" class="playSong">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button></div>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist">Delete</button></div>`);
     }
 }
 
@@ -115,8 +115,8 @@ const renderArtist = function (response) {
     }
 }
 
-const renderPlaylists = function (response){
-    for(let i = 0; i < response.items.length; i++){
+const renderPlaylists = function (response) {
+    for (let i = 0; i < response.items.length; i++) {
         $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist">${response.items[i].name}</button>`);
     }
 }
@@ -138,20 +138,37 @@ const addToPlaylist = function () {
     })
 }
 
+const deleteFromPlaylist = function () {
+    const trackURI = $(this).attr("data-uri");
+    console.log(trackURI);
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
+        method: "DELETE",
+        data:JSON.stringify({
+            tracks: [{uri: trackURI}]
+        }),
+        headers:{
+            'Authorization': 'Bearer ' + accessToken
+        },
+        contentType: "application/json"
+    })
+}
+
 const getUserID = function () {
     const accessToken = parseAccessToken();
     $.ajax({
         url: "https://api.spotify.com/v1/me",
-        headers:{
+        headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-        success: function(response) {
+        success: function (response) {
             createPlaylist(response);
         }
     })
 }
 
-const createPlaylist = function (response){
+const createPlaylist = function (response) {
     const accessToken = parseAccessToken();
     const playlistName = $("#newPlaylist").val();
     const userID = response.id;
@@ -189,4 +206,5 @@ $("#createBtn").on("click", getUserID);
 $("#displayBtn").on("click", queryPlaylist);
 $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
-$(`.playlist`).on("click",  ".addPlaylist", embedPlaylist);
+$(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
+$(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
