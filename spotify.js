@@ -211,8 +211,7 @@ const playSong = function () {
         success: function (response) {
             const songName = response.name;
             const artistName = response.artists[0].name;
-            console.log(songName, artistName);
-            //infoPull(songName, artistName);
+            infoPull(songName, artistName);
         }
     })
 }
