@@ -11,19 +11,23 @@ html, body {
     justify-content: space-between;
 }
 
-#searchBtn, {
-    margin-top: 25px;
-    padding: 6px;
+.column1, .column2, .column3 {
+    height: 400px ;
+    border: solid 2px black;
     float: left;
-    align-content: left;
+    margin: 10px;
 }
 
-.form-group, .btn1 {
+
+
+.form-group {
     margin-top: 20px;
-    padding: 6px;
+    padding: 3px;
     float: left;
-    align-content: left;
+    align-content: center;
+    vertical-align: 100%;
 }
+
 
 .container-fluid {
     font-family: 'Times New Roman', Times, serif;
@@ -52,21 +56,9 @@ body {
     width: 100%;
     text-align: left;
 }
-  
 
-
-#artistInfo {
-    height: auto;
-    width: auto;
-    text-align: center;
-    padding: 20px;
-    border: gray solid 2px;
-    margin-top: 50px;
-}
-
-
-.row {
-    margin: 10px;
+.searchBar, .form-info, .nav-item {
+    float: left;
 }
 
 .footer {
@@ -88,16 +80,30 @@ body {
     .footer {
         margin-top: 20px;
     }
+
+    .searchBar, .form-info, .nav-item {
+        float: right;
+    }
+    
 }
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;
     }
 
+    .searchBar, .form-info, .nav-item {
+        float: right;
+    }
+    
 }
 @media screen and (max-width: 640px) {
     .footer {
         margin-top: 20px;
     }
+
+    .searchBar, .form-info, .nav-item {
+        float: right;
+    }
+    
 }
 
