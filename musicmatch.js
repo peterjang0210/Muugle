@@ -1,14 +1,14 @@
 const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
-    $("#metaInfo").append(blockTemplate);
+    $("#metaInfo").html(blockTemplate);
     console.log(blockTemplate);
 }
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<p class="lyricsBody">Lyrics:<p class"lyricsBody">${lyricsBody}</p></p>`);
-    $("#lyricsBlock").append(blockTemplate);
+    $("#lyricsBlock").html(blockTemplate);
     console.log(blockTemplate);
 }
 
@@ -18,9 +18,14 @@ const infoRefine = function (songName, artistName) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        const albumName = response.track.album.title;
-        //create meta block
-        metaBlock(songName, artistName, albumName);
+        if (response.track.album != undefined) {
+            const albumName = response.track.album.title;
+            //create meta block
+            metaBlock(songName, artistName, albumName);
+        } else {
+            metaBlock(songName, artistName, "No album info found");
+        }
+
     })
 
 
@@ -30,8 +35,13 @@ const infoRefine = function (songName, artistName) {
         method: "GET"
     }).then(function (response) {
         //create lyrics block
-        const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
-        lyricsBlock(`${lyrics}`);
+        if (response.lyrics != undefined) {
+            const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
+            lyricsBlock(`${lyrics}`);
+        }else {
+            lyricsBlock("No lyrics available");
+        }
+
     })
 }
 
@@ -46,6 +56,8 @@ const infoPull = function (song, artist) {
     //get album and lyrics info
     infoRefine(songName, artistName);
 }
+
+infoPull("7 rings", "ariana grande");
 
 //testing and legacy area
 
