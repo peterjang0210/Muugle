@@ -75,7 +75,7 @@ const queryPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function (response) {
-            embedPlaylist(response);
+            renderPlaylists(response);
         }
     })
 }
@@ -115,25 +115,45 @@ const renderArtist = function (response) {
     }
 }
 
-const embedPlaylist = function (response) {
-    $("#playlist").empty();
-    $("#playlist").append(`<iframe src="https://open.spotify.com/embed/playlist/${response.items[0].id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+const renderPlaylists = function (response){
+    for(let i = 0; i < response.items.length; i++){
+        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist">${response.items[i].name}</button>`);
+    }
 }
 
-const addPlaylist = function () {
+const embedPlaylist = function () {
+    playlistID = $(this).attr("data-playlistID");
+    $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+}
+
+const addToPlaylist = function () {
     const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
     const accessToken = parseAccessToken();
-    const playlistID = "5aetR4FSUQMjqNIjJnJVAa";
     $.ajax({
         url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${trackURI}`,
         method: "POST",
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
             'Authorization': 'Bearer ' + accessToken
         }
     })
 }
+
+// const createPlaylist = function (){
+//     const accessToken = parseAccessToken();
+//     const playlistName = $("#createBtn").val();
+//     console.log(playlistName);
+//     $.ajax({
+//         url: `https://api.spotify.com/v1/playlists`,
+//         method: "POST",
+//         data: {
+//             "Name" : playlistName
+//         },
+//         headers: {
+//             'Authorization': 'Bearer ' + accessToken,
+//             "Content-Type": "application/json"
+//         }
+//     })
+// }
 
 const playSong = function () {
     const trackID = $(this).attr("data-trackID");
@@ -147,6 +167,8 @@ const playPlaylist = function () {
 }
 
 $("#searchBtn").on("click", searchSpotify);
-$("#addBtn").on("click", queryPlaylist);
+$("#displayBtn").on("click", queryPlaylist);
+// $("#createBtn").on("click", createPlaylist);
 $(`.songList`).on('click', ".playSong", playSong);
-$(`.songList`).on('click', ".addToPlaylist", addPlaylist);
+$(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
+$(`.playlist`).on("click",  ".addPlaylist", embedPlaylist);
