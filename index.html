@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Muugle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -24,11 +24,7 @@
                         <input class="form-control" type="text" id="searchBar" placeholder="Song Name or Artist..."
                             aria-label="Search">
                     </div>
-<<<<<<< HEAD
-                    <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
-=======
                     <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
->>>>>>> 26b4d1574d12fba4c13913328b6b6758f3c754ca
                 </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
@@ -44,61 +40,63 @@
 
         <main>
             <div class="container-fluid text-center">
-                <div class="row content-fluid justify-content-end">
+                <div class="row content-fluid justify-content-space-between">
                     <div class="col-sm-2 mt-4 ml-3 mr-3 sidenav">
                         <p><a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123">Login
                                 to Spotify</a>
                         </p>
-                        <!-- <ul>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul> -->
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 spotifyPlayer">
-                                to Spotify</a></p>
-                        <button class="btn btn-primary" id="addBtn">Add Playlist</button>
-                        <div id="playlist"></div>
-                    </div>
-                    <div class="col-sm-3">
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 spotifyPlayer">
                         <h1>Spotfiy Player</h1>
                         <p>Information here</p>
                         <hr>
-                        <div class=spotifyPlayer></div>
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 songList">
-                        <h1>Spotfiy Songlist</h1>
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 songList">
+                        <h1>Spotfiy Playlist</h1>
                         <p>Information here</p>
+                        <button class="btn btn-primary" id="addBtn">Add Playlist</button>
                         <hr>
-                        <div class="songList"></div>
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 recentlySearched">
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 recentlySearched">
                         <h1>Recently Played</h1>
                         <p>Information here</p>
                         <hr>
-                        <ul>
-                            <li>Test</li>
-                            <li>Test</li>
-                            <li>Test</li>
-                            <li>Test</li>
-                        </ul>
                     </div>
-                    <div class="col-xs-8 col-sm-4 col-md-10 col-lg-8 col-centered lyricInfo">
-                        <hr>
-                        <h3>Test</h3>
-                        <p>Lyric Information Here...</p>
+
+
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        Collapsible Group Item #1
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                                    aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                                    beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                                    of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- <div class="row content-fluid justify-content-end">
+                        <div class="col-xs-8 col-sm-4 col-md-10 col-lg-8 mt-4 col-centered justify-content-end lyricInfo">
+                            <hr>
+                            <h3>Test</h3>
+                            <p>Lyric Information Here...</p>
+                        </div>
+                    </div> -->
                 </div>
-            </div>
         </main>
     </wrapper>
 
@@ -108,13 +106,13 @@
                 <h6>Footer</h6>
             </div>
         </div>
-    <div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="spotify.js"></script>
-    <script src="musicmatch.js"></script>
-    <script src="render.js"></script>
-    <script src="app.js"></script>
+        <div>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+            <script src="spotify.js"></script>
+            <script src="musicmatch.js"></script>
+            <script src="render.js"></script>
+            <script src="app.js"></script>
 </body>
 
 </html>

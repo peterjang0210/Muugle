@@ -1,25 +1,33 @@
 .row.content {
-    height: 450px;
+    height: 100%;
     margin-top: 10px;
 }
   
-.sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
-}
-  
-
 html, body {
     height: 100%;
     /* position: relative; */
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
-
 }
 
+#searchBtn, {
+    margin-top: 25px;
+    padding: 6px;
+    float: left;
+    align-content: left;
+}
+
+.form-group, .btn1 {
+    margin-top: 20px;
+    padding: 6px;
+    float: left;
+    align-content: left;
+}
+
+.container-fluid {
+    font-family: 'Times New Roman', Times, serif;
+}
 
 body {
     display: flex;
@@ -28,23 +36,6 @@ body {
 
 .content {
     flex: 1 0 auto;
-}
-
-#artistInfo {
-    height: auto;
-    width: auto;
-    text-align: center;
-    padding: 20px;
-    border: gray solid 2px;
-    margin-top: 50px;
-}
-
-.wrapper, .row {
-    overflow: hidden;
-    height: auto;
-    position: relative;
-    width: auto;
-    align-content: center;
 }
 
 .navbar {
@@ -58,12 +49,10 @@ body {
     padding-top: 20px;
     background-color: #f1f1f1;
     height: 100%;
-    width: auto;
+    width: 100%;
+    text-align: left;
 }
   
-.footer {
-    position: fixed;
-}
 
 
 #artistInfo {
@@ -77,7 +66,7 @@ body {
 
 
 .row {
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .footer {
@@ -89,8 +78,8 @@ body {
     width: 100%;
     margin-bottom: -150px;
     bottom: 0; 
-    position: relative;
-    overflow: hidden;
+    position: sticky;
+    /* overflow: hidden; */
     margin-top: 60px;
 }
 
