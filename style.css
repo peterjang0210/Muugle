@@ -75,6 +75,24 @@ body {
     margin-top: 60px;
 }
 
+/* meta and lyrics info */
+.songName {
+    font-size: 25px;
+}
+
+.albumName {
+    font-size: 20px;
+}
+
+.artistName {
+    font-size: 20px;
+}
+
+.lyricsBody {
+    height: 220px;
+    overflow: auto;
+}
+
 
 @media only screen  and (max-width: 980px) {
     .footer {
