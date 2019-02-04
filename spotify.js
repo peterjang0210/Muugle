@@ -110,14 +110,14 @@ const renderArtist = function (response) {
             artist: artistArray[i].name,
             artistID: artistArray[i].id
         })
-        $(".songList").append(`<button id="${infoList[i].artistID}"><p>Artist:${infoList[i].artist}</p></button>`);
+        $(".songList").append(`<button id="${infoList[i].artistID}" class="btn-light">Artist:${infoList[i].artist}</button>`);
         $(`#${infoList[i].artistID}`).on('click', playPlaylist);
     }
 }
 
 const renderPlaylists = function (response) {
     for (let i = 0; i < response.items.length; i++) {
-        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist">${response.items[i].name}</button>`);
+        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
     }
 }
 
@@ -200,7 +200,7 @@ const playSong = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-    $('#recentlyPlayed').append(`<li><iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><li>`);
+    $('#recentlyPlayed').append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     cookieStore(trackID);
     const accessToken = parseAccessToken();
     $.ajax({
