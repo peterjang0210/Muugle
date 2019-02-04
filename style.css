@@ -37,7 +37,6 @@ hr {
     vertical-align: 100%;
 }
 
-
 .container-fluid {
     font-family: 'Times New Roman', Times, serif;
 }
@@ -84,6 +83,9 @@ body {
     margin-top: 60px;
 }
 
+.wrapper{
+    overflow: scroll;
+}
 
 @media only screen  and (max-width: 980px) {
     .footer {
@@ -115,4 +117,3 @@ body {
     }
     
 }
-

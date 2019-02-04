@@ -94,10 +94,10 @@ const renderTrack = function (response) {
             uri: trackArray[i].uri
         })
         $(".songList").append(`<div class="btn-group">
-        <button data-trackID="${infoList[i].trackID}" class="playSong">
+        <button data-trackID="${infoList[i].trackID}" class="playSong btn-outline-info">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist">Delete</button></div>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-outline-info">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-outline-info">Delete</button></div>`);
     }
 }
 
@@ -193,6 +193,7 @@ const createPlaylist = function (response) {
             'Authorization': 'Bearer ' + accessToken,
         }
     })
+    $("#newPlaylist").val("");
 }
 
 const playSong = function () {
