@@ -123,7 +123,8 @@ const renderPlaylists = function (response) {
 
 const embedPlaylist = function () {
     playlistID = $(this).attr("data-playlistID");
-    $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+    setInterval(function () {$(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)}, 30000);
 }
 
 const addToPlaylist = function () {
