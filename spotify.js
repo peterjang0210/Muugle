@@ -123,8 +123,7 @@ const renderPlaylists = function (response) {
 
 const embedPlaylist = function () {
     playlistID = $(this).attr("data-playlistID");
-    $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
-    setInterval(function () {$(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)}, 30000);
+    $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
 const addToPlaylist = function () {
@@ -135,6 +134,11 @@ const addToPlaylist = function () {
         method: "POST",
         headers: {
             'Authorization': 'Bearer ' + accessToken
+        },
+        success: function () {
+            setTimeout(function () {
+                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+            }, 30000);
         }
     })
 }
@@ -146,13 +150,18 @@ const deleteFromPlaylist = function () {
     $.ajax({
         url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
         method: "DELETE",
-        data:JSON.stringify({
-            tracks: [{uri: trackURI}]
+        data: JSON.stringify({
+            tracks: [{ uri: trackURI }]
         }),
-        headers:{
+        headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-        contentType: "application/json"
+        contentType: "application/json",
+        success: function () {
+            setTimeout(function () {
+                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+            }, 30000);
+        }
     })
 }
 
