@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Muugle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css?2" />
 </head>
 
 <body>
@@ -18,15 +19,15 @@
     <wrapper class="wrapper">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded ml-3 mr-3">
-                <a class="navbar-brand ml-auto" href="#">Muugle</a>
+                <a class="searchBar navbar-brand ml-auto" href="#">Muugle</a>
                 <form class="formInfo">
                     <div class="form-group">
                         <input class="form-control" type="text" id="searchBar" placeholder="Song Name or Artist..."
                             aria-label="Search">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+                    <button type="submit" class="btn btn-primary"  id="searchBtn">Search</button>
                 </form>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" data-value="about">Profile</a> </li>
@@ -40,57 +41,43 @@
 
         <main>
             <div class="container-fluid text-center">
-                <div class="row content-fluid justify-content-end">
+                <div class="row content-fluid justify-content-center">
                     <div class="col-sm-2 mt-4 ml-3 mr-3 sidenav">
                         <p><a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a>
                         </p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
+                    <div class="column1 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4">
                         <input type="text" placeholder="Playlist Name" id="newPlaylist">
+                        <hr>
                         <button class="btn btn-primary" id="createBtn">Create Playlist</button>
                         <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
                         <div class="playlist"></div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="column2 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4">
                         <h1>Spotfiy Player</h1>
-                        <p>Information here</p>
                         <hr>
-                        <div class=spotifyPlayer></div>
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 songList">
+                    <div class="column3 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4">
                         <h1>Spotfiy Songlist</h1>
-                        <p>Information here</p>
                         <hr>
                         <div class="songList"></div>
                     </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 recentlySearched">
+                    <div class="column4 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 recentlySearched">
                         <h1>Recently Played</h1>
-                        <p>history of your recently played songs</p>
+                        <p>History of your recently played songs</p>
                         <hr>
                         <ul id="recentlyPlayed">
                         </ul>
                     </div>
-                    <div class="col-xs-8 col-sm-4 col-md-10 col-lg-8 col-centered lyricInfo">
+                    <div class="col-xs-8 col-sm-4 col-md-10 col-lg-3 mt-4 col-centered lyricInfo">
+                        Lyric Info
                         <hr>
                         <div id="metaInfo"></div>
                         <div id="lyricsBlock"></div>
                     </div>
                 </div>
+            </div>
             </div>
         </main>
     </wrapper>
