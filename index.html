@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css?2" />
 </head>
 
 <body>
@@ -47,10 +48,9 @@
                         </p>
                     </div>
                     <div class="column1 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4">
-                        <h1>Playlist</h1>
+                        <input type="text" placeholder="Playlist Name" id="newPlaylist">
                         <hr>
-                        <!-- <input type="text" placeholder="Playlist Name" id="newPlaylist">
-                        <button class="btn btn-primary" id="createBtn">Create Playlist</button> -->
+                        <button class="btn btn-primary" id="createBtn">Create Playlist</button>
                         <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
                         <div class="playlist"></div>
                     </div>
@@ -58,12 +58,23 @@
                         <h1>Spotfiy Player</h1>
                         <hr>
                     </div>
-                    <div class="column3 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 recentlySearched">
-                        <h1>Recently Played</h1>
+                    <div class="column3 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4">
+                        <h1>Spotfiy Songlist</h1>
                         <hr>
+                        <div class="songList"></div>
                     </div>
-                    <div class="row">
-                        
+                    <div class="column4 col-xs-3 col-sm-4 col-md-3 col-lg-3 mt-4 recentlySearched">
+                        <h1>Recently Played</h1>
+                        <p>History of your recently played songs</p>
+                        <hr>
+                        <ul id="recentlyPlayed">
+                        </ul>
+                    </div>
+                    <div class="col-xs-8 col-sm-4 col-md-10 col-lg-3 mt-4 col-centered lyricInfo">
+                        Lyric Info
+                        <hr>
+                        <div id="metaInfo"></div>
+                        <div id="lyricsBlock"></div>
                     </div>
                 </div>
             </div>
@@ -71,19 +82,14 @@
         </main>
     </wrapper>
 
-    <div class="footer mb-0">
-        <div class="row">
-            <div class="col-xl-12">
-                <h6>Footer</h6>
-            </div>
-        </div>
-        <div>
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-            <script src="spotify.js?2"></script>
-            <!-- <script src="musicmatch.js"></script> -->
-            <script src="render.js"></script>
-            <script src="app.js"></script>
+    </footer>
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="cookie.js"></script>
+    <script src="spotify.js"></script>
+    <script src="musicmatch.js"></script>
+    <script src="render.js"></script>
 </body>
 
 </html>
