@@ -18,7 +18,10 @@ const infoRefine = function (songName, artistName) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        if (response.track.album != undefined) {
+        if (response.message == "Track not found"){
+            metaBlock(songName, artistName, "No album info found");
+        }
+        else if (response.track.album != undefined) {
             const albumName = response.track.album.title;
             //create meta block
             metaBlock(songName, artistName, albumName);
@@ -32,17 +35,25 @@ const infoRefine = function (songName, artistName) {
     //get lyrics
     $.ajax({
         url: `https://api.lyrics.ovh/v1/${artistName}/${songName}`,
-        method: "GET"
-    }).then(function (response) {
-        //create lyrics block
-        if (response.lyrics != undefined) {
+        method: "GET",
+        success: function(response){
             const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
             lyricsBlock(`${lyrics}`);
-        }else {
+        },
+        error: function(){
             lyricsBlock("No lyrics available");
         }
-
     })
+    // .then(function (response) {
+    //     //create lyrics block
+    //     if (response.error) {
+    //         lyricsBlock("No lyrics available");
+    //     } else {
+    //         const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
+    //         lyricsBlock(`${lyrics}`);
+    //     }
+
+    // })
 }
 
 
