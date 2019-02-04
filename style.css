@@ -87,6 +87,17 @@ body {
     overflow: scroll;
 }
 
+.btn-light{
+    background-color: #9FB4C7;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.songList{
+    height: 300px;
+    overflow: scroll;
+}
+
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;

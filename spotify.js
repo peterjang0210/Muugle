@@ -94,10 +94,10 @@ const renderTrack = function (response) {
             uri: trackArray[i].uri
         })
         $(".songList").append(`<div class="btn-group">
-        <button data-trackID="${infoList[i].trackID}" class="playSong btn-outline-info">
+        <button data-trackID="${infoList[i].trackID}" class="playSong btn-light">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-outline-info">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-outline-info">Delete</button></div>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-light">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-light">Delete</button></div>`);
     }
 }
 
