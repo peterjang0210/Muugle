@@ -1,14 +1,14 @@
 const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
-    $("p").append(blockTemplate);
+    $("#metaInfo").append(blockTemplate);
     console.log(blockTemplate);
 }
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<p class="lyricsBody">Lyrics:<p class"lyricsBody">${lyricsBody}</p></p>`);
-    $("p").append(blockTemplate);
+    $("#lyricsBlock").append(blockTemplate);
     console.log(blockTemplate);
 }
 
@@ -39,32 +39,31 @@ const infoRefine = function (songName, artistName) {
 const infoPull = function (song, artist) {
 
 
-        //get meta
-        const songName = song.replace(/’/g, "'");
-        const artistName = artist.replace(/’/g, "'");
+    //get meta
+    const songName = song.replace(/’/g, "'");
+    const artistName = artist.replace(/’/g, "'");
 
-        //get album and lyrics info
-        infoRefine(songName, artistName);
-    })
+    //get album and lyrics info
+    infoRefine(songName, artistName);
 }
 
 //testing and legacy area
 
-// const render = function (event) {
-//     event.preventDefault();
-//     const searchInput = $(".textInput").val();
-//     $(".artistInfo").empty();
-//     infoPull(searchInput);
-// }
+// // const render = function (event) {
+// //     event.preventDefault();
+// //     const searchInput = $(".textInput").val();
+// //     $(".artistInfo").empty();
+// //     infoPull(searchInput);
+// // }
 
-// const testEmpty = function (event) {
-//     // event.preventDefault();
-//     $("#metaLyrics").empty();
-// }
+// // const testEmpty = function (event) {
+// //     // event.preventDefault();
+// //     $("#metaLyrics").empty();
+// // }
 
-// infoPull("sweet child");
+// infoPull("sweet child o' mine", "guns n' roses");
 
-// $("#testButton").on("click", testEmpty);
+// // $("#testButton").on("click", testEmpty);
 
 
 //legacy genius code
