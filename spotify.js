@@ -155,17 +155,16 @@ const createPlaylist = function (response){
     const accessToken = parseAccessToken();
     const playlistName = $("#newPlaylist").val();
     const userID = response.id;
-    console.log(userID);
-    console.log(playlistName);
     $.ajax({
         url: `https://api.spotify.com/v1/users/${userID}/playlists`,
         method: "POST",
-        data: {
-            "Name" : playlistName
-        },
+        data: JSON.stringify({
+            "name": `${playlistName}`
+        }),
+        processData: false,
+        contentType: "application/json",
         headers: {
             'Authorization': 'Bearer ' + accessToken,
-            "Content-Type": "application/json"
         }
     })
 }
