@@ -199,9 +199,7 @@ const createPlaylist = function (response) {
 const playSong = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
-    $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-    $('#recentlyPlayed').append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-    cookieStore(trackID);
+    $(".spotifyPlayer").append(`<iframe id="spotify-player" src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     const accessToken = parseAccessToken();
     $.ajax({
         url: `https://api.spotify.com/v1/tracks/${trackID}`,
@@ -213,6 +211,7 @@ const playSong = function () {
             const songName = response.name;
             const artistName = response.artists[0].name;
             infoPull(songName, artistName);
+            storeCookie(trackID, songName, artistName);
         }
     })
 }
