@@ -1,16 +1,26 @@
+//create and append dom object containing:       . . .  to container with id = metaInfo  (styled)
+// h1 tag containing song name with class = songName
+// h2 tag containing album name with class = albumName
+// h3 tag containing artist name with class = artistName
 const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
     $("#metaInfo").html(blockTemplate);
 }
 
+//create and append dom object containing:       . . .  to container with id = lyricsBlock   (styled)
+// p tag containing section title "Lyrics: " with class = lyricsSection
+// p tag containing lyrics of song with class = lyricsBody
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<p class="lyricsSection">Lyrics:<p class="lyricsBody">${lyricsBody}</p></p>`);
     $("#lyricsBlock").html(blockTemplate);
 }
 
+
+//fetch data from lastfm and lyrics.ovh apis and call respective functions   (false states included)
 const infoRefine = function (songName, artistName) {
+    // get album info
     $.ajax({
         url: `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
         method: "GET",
@@ -20,7 +30,6 @@ const infoRefine = function (songName, artistName) {
             }
             else if (response.track.album != undefined) {
                 const albumName = response.track.album.title;
-                //create meta block
                 metaBlock(songName, artistName, albumName);
             } else {
                 metaBlock(songName, artistName, "No album info found");
@@ -31,12 +40,12 @@ const infoRefine = function (songName, artistName) {
         }
     })
 
-
     //get lyrics
     $.ajax({
         url: `https://api.lyrics.ovh/v1/${artistName}/${songName}`,
         method: "GET",
         success: function (response) {
+            // formatting response by encoding string into URI, replacing newline symbol with line break tag to display lyrics in a readable manner, decode the result to get rid of excess encoded symbols
             const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
             lyricsBlock(`${lyrics}`);
         },
@@ -44,31 +53,20 @@ const infoRefine = function (songName, artistName) {
             lyricsBlock("No lyrics available");
         }
     })
-    // .then(function (response) {
-    //     //create lyrics block
-    //     if (response.error) {
-    //         lyricsBlock("No lyrics available");
-    //     } else {
-    //         const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
-    //         lyricsBlock(`${lyrics}`);
-    //     }
-
-    // })
 }
 
-
+// function called by spotify.js, taking in song and artist information on button presses. also responsible for parsing arguments into correct formats(requires constant maintanence for now)
 const infoPull = function (song, artist) {
 
-
-    //get meta
+    // parsing area
     const songName = song.replace(/’/g, "'");
     const artistName = artist.replace(/’/g, "'");
 
-    //get album and lyrics info
+    // feed parsed data into infoRefine
     infoRefine(songName, artistName);
 }
 
-//testing and legacy area
+//testing and legacy/backup area
 
 // // const render = function (event) {
 // //     event.preventDefault();
