@@ -52,6 +52,13 @@
             </nav>
         </header>
         <div>
+            <div class="row d-flex fex-row-reverse aboutPg justify-content-center">
+                <p class="col-6 bg-dark mt-30">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam eveniet nesciunt, 
+                    laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente? Aut, sit at. 
+                    Velit, corrupti.
+                </p>
+            </div>
             <div class="row text-center">
                 <div class="column1 col mt-4">
                     <input type="text" placeholder="Playlist Name" id="newPlaylist">
@@ -61,12 +68,12 @@
                     <div class="playlist"></div>
                 </div>
                 <div class="column2 col mt-4">
-                    <h2>Spotfiy Player</h2>
+                    <h2>Player</h2>
                     <hr>
                     <div class="spotifyPlayer"></div>
                 </div>
                 <div class="column3 col mt-4">
-                    <h2>Spotfiy Songlist</h2>
+                    <h2>Songlist</h2>
                     <hr>
                         <table class="table table-hover">
                             <tbody class="songList">
@@ -83,12 +90,27 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="column5 col-md-6 mt-4 col-centered lyricInfo">
-                    <h2>Song & Artist Information</h2>
-                    <hr>
-                    <div id="metaInfo"></div>
-                    <div id="lyricsBlock"></div>
+            <div class="row d-flex fex-row-reverse">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <h2>Song & Artist Information</h2>
+                                <hr>
+                                <div id="metaInfo"></div>
+                                <div id="lyricsBlock"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
