@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css?2" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
 </head>
 
@@ -35,7 +35,7 @@
                             <a class="nav-link " data-value="portfolio">Playlists</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sidenav" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                            <a class="nav-link sidenav" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=https://peterjang0210.github.io/Music-Search-App/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a>
                         </li>
                     </ul>
@@ -53,7 +53,7 @@
             </nav>
         </header>
         <div>
-            <div class="row justify-content-center">
+            <<<<<<< HEAD <div class="row justify-content-center">
                 <div class="col-6 column0 ml-3 mr-3 mt-4 rounded">
                     <h3 class="text-left">
                         Muugle, <br>
@@ -68,36 +68,57 @@
                         Velit, corrupti.
                     </p>
                 </div>
-            </div>
-            <div class="row text-center justify-content-center">
-                <div class="column1 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Playlist</h2>
-                    <hr>
-                    <input type="text" placeholder="Playlist Name" id="newPlaylist"><br>
-                    <button class="btn btn-primary" id="createBtn">Create Playlist</button><br>
-                    <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
-                    <div class="playlist"></div>
+        </div>
+        <div class="row text-center justify-content-center">
+            <div class="column1 col-xs-12 col ml-3 mr-3 mt-4">
+                <h2>Playlist</h2>
+                <hr>
+                <input type="text" placeholder="Playlist Name" id="newPlaylist"><br>
+                <button class="btn btn-primary" id="createBtn">Create Playlist</button><br>
+                =======
+                <div class="row d-flex fex-row-reverse aboutPg justify-content-center">
+                    <p class="col-6 bg-dark mt-30">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam
+                        eveniet
+                        nesciunt,
+                        laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente?
+                        Aut,
+                        sit at.
+                        Velit, corrupti.
+                    </p>
                 </div>
-                <div class="column2 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Player</h2>
-                    <hr>
-                    <div class="spotifyPlayer"></div>
+                <div class="row text-center">
+                    <div class="column1 col mt-4">
+                        <input type="text" placeholder="Playlist Name" id="newPlaylist">
+                        <button class="btn btn-primary" id="createBtn">Create Playlist</button>
+                        >>>>>>> 760d423bce7eeb80ec53e9c93f2b2617dfeb2917
+                        <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
+                        <hr>
+                        <div class="playlist"></div>
+                    </div>
+                    <div class="column2 col-xs-12 col ml-3 mr-3 mt-4">
+                        <h2>Player</h2>
+                        <hr>
+                        <div class="spotifyPlayer"></div>
+                    </div>
+                    <div class="column3 col-xs-12 col ml-3 mr-3 mt-4">
+                        <h2>Songlist</h2>
+                        <hr>
+                        <table class="table table-hover">
+                            <tbody class="songList">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="column3 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Songlist</h2>
-                    <hr>
-                    <div class="songList"></div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="column4 col-xs-12 col-md-4 col-lg-4 mt-4 ml-3 mr-3 recentlySearched">
-                    <h2>Recently Played</h2>
-                    <p>History of your recently played songs</p>
-                    <hr>
-                    <ul id="recentlyPlayed">
-                    </ul>
-                </div>
-                <!-- <div class="column5">
+                <div class="row justify-content-center">
+                    <div class="column4 col-xs-12 col-md-4 col-lg-4 mt-4 ml-3 mr-3 recentlySearched">
+                        <h2>Recently Played</h2>
+                        <p>History of your recently played songs</p>
+                        <hr>
+                        <ul id="recentlyPlayed">
+                        </ul>
+                    </div>
+                    <!-- <div class="column5">
                     <p>
                         <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
                             aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element
@@ -117,21 +138,22 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="col column5">
-                    <h2>Song & Artist Information</h2>
-                    <hr>
-                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lyricsInfo">Lyrics
+                    <div class="col column5">
+                        <h2>Song & Artist Information</h2>
+                        <hr>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lyricsInfo">Lyrics
                         </button>
-                    <div id="lyricsInfo" class="collapse">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus expedita laudantium deserunt doloribus explicabo reprehenderit soluta laborum, harum rerum! 
-                            Dignissimos at cum quasi itaque earum mollitia excepturi eligendi nemo in.
-                        </p>
-                        <div id="metaInfo"></div>
-                        <div id="lyricsBlock"></div>
+                        <div id="lyricsInfo" class="collapse">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus expedita laudantium
+                                deserunt doloribus explicabo reprehenderit soluta laborum, harum rerum!
+                                Dignissimos at cum quasi itaque earum mollitia excepturi eligendi nemo in.
+                            </p>
+                            <div id="metaInfo"></div>
+                            <div id="lyricsBlock"></div>
+                        </div>
                     </div>
-                </div>
-                <!-- <div id="accordion" class="acoordion">
+                    <!-- <div id="accordion" class="acoordion">
                     <div class="card column5 col-xs-12 col-md-12 col-lg-12 mt-4 ml-3 mr-3">
                         <div class="card-header" id="lyricHeading">
                             <h5 class="mb-0">
@@ -152,24 +174,27 @@
                         </div>
                     </div>
                 </div> -->
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <footer>
     </footer>
 
-
-    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/debounce.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
     <script src="cookie.js"></script>
-    <script src="spotify.js"></script>
+    <<<<<<< HEAD <script src="spotify.js">
+    </script>
     <script src="musicmatch.js"></script>
     <script src="render.js"></script>
     <script src="app.js"></script>
+    =======
+    <script src="spotify.js?2"></script>
+    <script src="musicmatch.js?2"></script>
+    >>>>>>> 760d423bce7eeb80ec53e9c93f2b2617dfeb2917
 </body>
 
 </html>

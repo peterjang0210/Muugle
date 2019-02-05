@@ -13,6 +13,7 @@ const lyricsBlock = function (lyricsBody) {
 const infoRefine = function (songName, artistName) {
     $.ajax({
         url: `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
+
         method: "GET",
         success: function (response) {
             if (response.message == "Track not found") {
@@ -28,6 +29,7 @@ const infoRefine = function (songName, artistName) {
         },
         error: function() {
             metaBlock("Track not found", "Artist not found", "No album info found");
+
         }
     })
 
