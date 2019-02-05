@@ -14,7 +14,7 @@ const lyricsBlock = function (lyricsBody) {
 
 const infoRefine = function (songName, artistName) {
     $.ajax({
-        url: `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
+        url: `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -67,8 +67,6 @@ const infoPull = function (song, artist) {
     //get album and lyrics info
     infoRefine(songName, artistName);
 }
-
-infoPull("7 rings", "ariana grande");
 
 //testing and legacy area
 

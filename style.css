@@ -83,6 +83,30 @@ body {
     margin-top: 60px;
 }
 
+.addPlaylist{
+    margin:5px;
+}
+
+.btn-light{
+    background-color: #9FB4C7;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.songList{
+    height: 300px;
+    overflow: scroll;
+}
+
+.playlist{
+    height: 270px;
+    overflow: scroll;
+}
+
+.spotifyPlayer{
+    height: 330px;
+    overflow: scroll;
+}
 /* meta and lyrics info */
 .songName {
     font-size: 25px;
@@ -97,7 +121,7 @@ body {
 }
 
 .lyricsBody {
-    height: 220px;
+    height: 170px;
     overflow: auto;
 }
 
@@ -117,4 +141,3 @@ body {
         margin-top: 20px;
     }
 }
-

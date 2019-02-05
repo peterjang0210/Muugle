@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css?2" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
@@ -51,7 +51,6 @@
                 </div>
             </nav>
         </header>
-
         <div>
             <div class="row d-flex fex-row-reverse aboutPg justify-content-center">
                 <p class="col-6 bg-dark mt-30">
@@ -71,6 +70,7 @@
                 <div class="column2 col mt-4">
                     <h2>Player</h2>
                     <hr>
+                    <div class="spotifyPlayer"></div>
                 </div>
                 <div class="column3 col mt-4">
                     <h2>Songlist</h2>
@@ -112,7 +112,6 @@
             </div>
         </div>
     </div>
-    </div>
 
     <footer>
     </footer>
@@ -121,6 +120,7 @@
     <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/debounce.js"></script>
     <script src="cookie.js"></script>
     <script src="spotify.js"></script>
     <script src="musicmatch.js"></script>
