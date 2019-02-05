@@ -93,11 +93,19 @@ const renderTrack = function (response) {
             trackID: trackArray[i].id,
             uri: trackArray[i].uri
         })
-        $(".songList").append(`<div class="btn-group">
-        <button data-trackID="${infoList[i].trackID}" class="playSong btn-light">
-        <p>Song:${infoList[i].track}</p>
-        <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-light">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-light">Delete</button></div>`);
+        $(".songList").append(
+        `<tr>
+            <td data-trackID="${infoList[i].trackID}" class="playSong">
+                <p>Song:${infoList[i].track}</p>
+                <p>Artist:${infoList[i].artist}</p>
+            </td>
+            <td data-uri="${infoList[i].uri}" class="addToPlaylist">
+                Add
+            </td>
+            <td data-uri="${infoList[i].uri}" class="deleteFromPlaylist">
+                Delete
+            </td>
+        </tr>`);
     }
 }
 
