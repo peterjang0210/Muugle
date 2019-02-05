@@ -20,7 +20,7 @@ html, body {
     padding-bottom: 15px;
     text-align: center;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .card-body {
@@ -133,8 +133,30 @@ body {
     margin-bottom: 5px;
 }
 
+td{
+    transition: background-color .5s ease-in;
+}
+
 td:hover{
     background-color: #9FB4C7;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+iframe{
+    animation-duration: 2s;
+    animation-name: fadeIn;
 }
 
 .playlist{
