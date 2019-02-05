@@ -136,9 +136,9 @@ const addToPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function () {
-            setTimeout(function () {
+            _.debounce(setTimeout(function () {
                 $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-            }, 30000);
+            }, 30000), 5000);
         }
     })
 }
@@ -157,9 +157,9 @@ const deleteFromPlaylist = function () {
         },
         contentType: "application/json",
         success: function () {
-            setTimeout(function () {
+            _.debounce(setTimeout(function () {
                 $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-            }, 30000);
+            }, 30000), 5000);
         }
     })
 }
