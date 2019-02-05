@@ -5,18 +5,31 @@
   
 html, body {
     height: 100%;
-    /* position: relative; */
-    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
+    background-color: #B4B7BA;
 }
 
-.column1, .column2, .column3, .column4, .column5{
-    height: 400px ;
+.column1, .column2, .column3, .column4, .column5 {
+    height: auto;
     border: solid 2px black;
-    float: left;
+    border-radius: 10px;
     margin: 10px;
-    padding: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.column1, .column3, .column5 {
+    background-color:  #f0ead6;
+}
+
+.column2, .column4 {
+    background-color:  #BFD641;
+}
+
+.aboutPg p {
+    height: 450px;
+    width: 500px;
 }
 
 hr {
@@ -29,12 +42,8 @@ hr {
     padding: 5px;
 }
 
-.form-group {
-    margin-top: 20px;
-    padding: 3px;
-    float: left;
-    align-content: center;
-    vertical-align: 100%;
+#newPlaylist, #createBtn, #displayBtn {
+    width: auto;
 }
 
 .container-fluid {
@@ -55,15 +64,7 @@ body {
     border-radius: 0;
 }
   
-.row.content {height: auto}
-  
-.sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
-    width: 100%;
-    text-align: left;
-}
+.row.content {height: auto;}
 
 .searchBar, .form-info, .nav-item {
     float: left;
@@ -79,12 +80,7 @@ body {
     margin-bottom: -150px;
     bottom: 0; 
     position: sticky;
-    /* overflow: hidden; */
     margin-top: 60px;
-}
-
-.wrapper{
-    overflow: scroll;
 }
 
 .addPlaylist{
@@ -125,7 +121,7 @@ body {
 }
 
 .lyricsBody {
-    height: 220px;
+    height: 170px;
     overflow: auto;
 }
 
@@ -133,30 +129,15 @@ body {
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;
-    }
-
-    .searchBar, .form-info, .nav-item {
-        float: right;
-    }
-    
+    }    
 }
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;
     }
-
-    .searchBar, .form-info, .nav-item {
-        float: right;
-    }
-    
 }
 @media screen and (max-width: 640px) {
     .footer {
         margin-top: 20px;
     }
-
-    .searchBar, .form-info, .nav-item {
-        float: right;
-    }
-    
 }
