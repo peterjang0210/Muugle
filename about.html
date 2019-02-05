@@ -21,7 +21,7 @@
 
 <body>
     <div class="jumbotron text-center">
-        <h1 class="text-center">Welcome to Muugle</h1>
+        <h1 class="text-center">About Muugle</h1>
     </div>
     <div class="container-fluid">
         <header>
@@ -31,12 +31,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse navbar-brand ml-auto" id="muugleIcon">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         Muugle
                     </a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" data-value="about" href="about.html">About</a> </li>
+                            <a class="nav-link" data-value="home" href="index.html">Home</a> </li>
                         <li class="nav-item">
                             <a class="nav-link " data-value="portfolio">Playlists</a>
                         </li>
@@ -46,84 +46,25 @@
                         </li>
                     </ul>
                 </div>
-                <form class="formInfo form-inline my-2 my-lg-0">
-                    <div class="form-group">
-                        <input class="form-control mr-sm-2" type="search" id="searchBar" placeholder="Song Name or Artist..."
-                            aria-label="Search">
-                        <button type="submit" class="btn btn-outline-dark my-2 my-sm-0" id="searchBtn">Search</button>
-                    </div>
-                </form>
             </nav>
         </header>
         <div>
-            <div class="row justify-content-center">
-                <div class="col-6 column0 ml-3 mr-3 mt-4 rounded">
-                    <h3 class="text-left">
-                        Muugle, <br>
-                        the Music Search Engine for Free Music Streaming
-                        <hr>
-                    </h3>
-                    <p class="pGraph text-left mt-4 mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam
-                        eveniet nesciunt,<br>
-                        laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente?
-                        Aut, sit at.
-                        Velit, corrupti.
-                    </p>
-                </div>
-            </div>
             <div class="row text-center justify-content-center">
                 <div class="column1 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Playlist</h2>
+                    <h2>Peter</h2>
                     <hr>
-                    <input type="text" placeholder="Playlist Name" id="newPlaylist"><br>
-                    <button class="btn btn-primary" id="createBtn">Create Playlist</button>
-                    <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
-                    <hr>
-                    <div class="playlist"></div>
                 </div>
                 <div class="column2 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Player</h2>
+                    <h2>Lin</h2>
                     <hr>
-                    <div class="spotifyPlayer"></div>
                 </div>
                 <div class="column3 col-xs-12 col ml-3 mr-3 mt-4">
-                    <h2>Songlist</h2>
+                    <h2>Andrew</h2>
                     <hr>
-                    <table class="table table-hover">
-                        <tbody class="songList">
-                        </tbody>
-                    </table>
                 </div>
-            </div>
-            <div class="row justify-content-space-between">
-                <div class="column4 col-xs-12 col-md-5 col-lg-3 mt-4 ml-3 mr-3 recentlySearched">
-                    <h2>Recently Played</h2>
-                    <p>History of your recently played songs</p>
+                <div class="column4 col-xs-12 col ml-3 mr-3 mt-4 recentlySearched">
+                    <h2>Nihit</h2>
                     <hr>
-                    <ul id="recentlyPlayed">
-                    </ul>
-                </div>
-                <div class="column5 col-xs-12 col-md-6 col-lg-8 mt-4 ml-3 mr-3">
-                    <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#lyricsCollapse" role="button"
-                            aria-expanded="false" aria-controls="lyricsCollapse">Lyrics</a>
-                    </p>
-                    <p>
-                        Artist and Lyric Information
-                    </p>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <div class="collapse" id="lyricsCollapse">
-                                <div class="card card-body">
-                                    <div id="metaInfo"></div>
-                                    Test
-                                    <div id="lyricsBlock"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -143,5 +84,3 @@
         <script src="spotify.js?2"></script>
         <script src="musicmatch.js?2"></script>
 </body>
-
-</html>
