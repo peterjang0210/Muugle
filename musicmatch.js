@@ -15,20 +15,23 @@ const lyricsBlock = function (lyricsBody) {
 const infoRefine = function (songName, artistName) {
     $.ajax({
         url: `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        if (response.message == "Track not found"){
-            metaBlock(songName, artistName, "No album info found");
+        method: "GET",
+        success: function (response) {
+            console.log(response);
+            if (response.message == "Track not found") {
+                metaBlock(songName, artistName, "No album info found");
+            }
+            else if (response.track.album != undefined) {
+                const albumName = response.track.album.title;
+                //create meta block
+                metaBlock(songName, artistName, albumName);
+            } else {
+                metaBlock(songName, artistName, "No album info found");
+            }
+        },
+        error: function() {
+            metaBlock("Track not found", "Artist not found", "No album info found");
         }
-        else if (response.track.album != undefined) {
-            const albumName = response.track.album.title;
-            //create meta block
-            metaBlock(songName, artistName, albumName);
-        } else {
-            metaBlock(songName, artistName, "No album info found");
-        }
-
     })
 
 
@@ -36,11 +39,11 @@ const infoRefine = function (songName, artistName) {
     $.ajax({
         url: `https://api.lyrics.ovh/v1/${artistName}/${songName}`,
         method: "GET",
-        success: function(response){
+        success: function (response) {
             const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
             lyricsBlock(`${lyrics}`);
         },
-        error: function(){
+        error: function () {
             lyricsBlock("No lyrics available");
         }
     })
