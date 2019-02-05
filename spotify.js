@@ -94,10 +94,10 @@ const renderTrack = function (response) {
             uri: trackArray[i].uri
         })
         $(".songList").append(`<div class="btn-group">
-        <button data-trackID="${infoList[i].trackID}" class="playSong">
+        <button data-trackID="${infoList[i].trackID}" class="playSong btn-light">
         <p>Song:${infoList[i].track}</p>
         <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist">Add</button></div>`);
+        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-light">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-light">Delete</button></div>`);
     }
 }
 
@@ -110,14 +110,14 @@ const renderArtist = function (response) {
             artist: artistArray[i].name,
             artistID: artistArray[i].id
         })
-        $(".songList").append(`<button id="${infoList[i].artistID}"><p>Artist:${infoList[i].artist}</p></button>`);
+        $(".songList").append(`<button id="${infoList[i].artistID}" class="btn-light">Artist:${infoList[i].artist}</button>`);
         $(`#${infoList[i].artistID}`).on('click', playPlaylist);
     }
 }
 
-const renderPlaylists = function (response){
-    for(let i = 0; i < response.items.length; i++){
-        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist">${response.items[i].name}</button>`);
+const renderPlaylists = function (response) {
+    for (let i = 0; i < response.items.length; i++) {
+        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
     }
 }
 
@@ -134,32 +134,87 @@ const addToPlaylist = function () {
         method: "POST",
         headers: {
             'Authorization': 'Bearer ' + accessToken
+        },
+        success: function () {
+            _.debounce(setTimeout(function () {
+                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+            }, 30000), 5000);
         }
     })
 }
 
-// const createPlaylist = function (){
-//     const accessToken = parseAccessToken();
-//     const playlistName = $("#createBtn").val();
-//     console.log(playlistName);
-//     $.ajax({
-//         url: `https://api.spotify.com/v1/playlists`,
-//         method: "POST",
-//         data: {
-//             "Name" : playlistName
-//         },
-//         headers: {
-//             'Authorization': 'Bearer ' + accessToken,
-//             "Content-Type": "application/json"
-//         }
-//     })
-// }
+const deleteFromPlaylist = function () {
+    const trackURI = $(this).attr("data-uri");
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
+        method: "DELETE",
+        data: JSON.stringify({
+            tracks: [{ uri: trackURI }]
+        }),
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        contentType: "application/json",
+        success: function () {
+            _.debounce(setTimeout(function () {
+                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+            }, 30000), 5000);
+        }
+    })
+}
+
+const getUserID = function () {
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: "https://api.spotify.com/v1/me",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function (response) {
+            createPlaylist(response);
+        }
+    })
+}
+
+const createPlaylist = function (response) {
+    const accessToken = parseAccessToken();
+    const playlistName = $("#newPlaylist").val();
+    const userID = response.id;
+    $.ajax({
+        url: `https://api.spotify.com/v1/users/${userID}/playlists`,
+        method: "POST",
+        data: JSON.stringify({
+            "name": `${playlistName}`
+        }),
+        processData: false,
+        contentType: "application/json",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken,
+        }
+    })
+    $("#newPlaylist").val("");
+}
 
 const playSong = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    $('#recentlyPlayed').append(`<iframe src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     cookieStore(trackID);
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: `https://api.spotify.com/v1/tracks/${trackID}`,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        method: "GET",
+        success: function (response) {
+            const songName = response.name;
+            const artistName = response.artists[0].name;
+            infoPull(songName, artistName);
+        }
+    })
 }
 
 const playPlaylist = function () {
@@ -168,8 +223,9 @@ const playPlaylist = function () {
 }
 
 $("#searchBtn").on("click", searchSpotify);
+$("#createBtn").on("click", getUserID);
 $("#displayBtn").on("click", queryPlaylist);
-// $("#createBtn").on("click", createPlaylist);
 $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
-$(`.playlist`).on("click",  ".addPlaylist", embedPlaylist);
+$(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
+$(`.playlist`).on("click", ".addPlaylist", embedPlaylist);

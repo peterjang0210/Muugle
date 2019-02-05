@@ -1,23 +1,53 @@
 .row.content {
-    height: 450px;
+    height: 100%;
     margin-top: 10px;
 }
   
-.sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
-}
-  
-
 html, body {
     height: 100%;
-    /* position: relative; */
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: scroll;
+    background-color: #B4B7BA;
+}
 
+.column1, .column2, .column3, .column4, .column5 {
+    height: auto;
+    border: solid 2px black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.column1, .column3, .column5 {
+    background-color:  #f0ead6;
+}
+
+.column2, .column4 {
+    background-color:  #BFD641;
+}
+
+.aboutPg p {
+    height: 450px;
+    width: 500px;
+}
+
+hr {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#newPlaylist {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#newPlaylist, #createBtn, #displayBtn {
+    width: auto;
+}
+
+.container-fluid {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -29,54 +59,15 @@ body {
     flex: 1 0 auto;
 }
 
-#artistInfo {
-    height: auto;
-    width: auto;
-    text-align: center;
-    padding: 20px;
-    border: gray solid 2px;
-    margin-top: 50px;
-}
-
-.wrapper, .row {
-    overflow: scroll;
-    height: auto;
-    position: relative;
-    width: auto;
-    align-content: center;
-}
-
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
 }
   
-.row.content {height: auto}
-  
-.sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
-    width: auto;
-}
-  
-.footer {
-    position: fixed;
-}
+.row.content {height: auto;}
 
-
-#artistInfo {
-    height: auto;
-    width: auto;
-    text-align: center;
-    padding: 20px;
-    border: gray solid 2px;
-    margin-top: 50px;
-}
-
-
-.row {
-    margin-top: 10px;
+.searchBar, .form-info, .nav-item {
+    float: left;
 }
 
 .footer {
@@ -88,26 +79,65 @@ body {
     width: 100%;
     margin-bottom: -150px;
     bottom: 0; 
-    position: relative;
-    overflow: scroll;
+    position: sticky;
     margin-top: 60px;
 }
 
+.addPlaylist{
+    margin:5px;
+}
+
+.btn-light{
+    background-color: #9FB4C7;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.songList{
+    height: 300px;
+    overflow: scroll;
+}
+
+.playlist{
+    height: 270px;
+    overflow: scroll;
+}
+
+.spotifyPlayer{
+    height: 330px;
+    overflow: scroll;
+}
+/* meta and lyrics info */
+.songName {
+    font-size: 25px;
+}
+
+.albumName {
+    font-size: 20px;
+}
+
+.artistName {
+    font-size: 20px;
+}
+
+.lyricsBody {
+    height: 170px;
+    overflow: auto;
+}
+
 
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;
-    }
+    }    
 }
 @media only screen  and (max-width: 980px) {
     .footer {
         margin-top: 20px;
     }
-
 }
 @media screen and (max-width: 640px) {
     .footer {
         margin-top: 20px;
     }
 }
-

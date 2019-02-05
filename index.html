@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Muugle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
@@ -15,90 +16,111 @@
     <div class="jumbotron text-center">
         <h1 class="text-center">Welcome to Muugle</h1>
     </div>
-    <wrapper class="wrapper">
+    <div class="container-fluid">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded ml-3 mr-3">
-                <a class="navbar-brand ml-auto" href="#">Muugle</a>
-                <form class="formInfo">
-                    <div class="form-group">
-                        <input class="form-control" type="text" id="searchBar" placeholder="Song Name or Artist..."
-                            aria-label="Search">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
-                </form>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navbar-brand ml-auto" id="muugleIcon">
+                    <a class="navbar-brand" href="#">
+                        Muugle
+                    </a>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" data-value="about">Profile</a> </li>
                         <li class="nav-item">
                             <a class="nav-link " data-value="portfolio">Playlists</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link sidenav" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                                to Spotify</a>
+                        </li>
                     </ul>
+                </div>
+                <form class="formInfo form-inline my-2 my-lg-0">
+                    <div class="form-group">
+                        <input class="form-control mr-sm-2" type="search" id="searchBar" placeholder="Song Name or Artist..."
+                            aria-label="Search">
+                        <button type="submit" class="btn btn-outline-dark my-2 my-sm-0" id="searchBtn">Search</button>
+                    </div>
+                </form>
+                <div class="navbar" id="navbarSupportedContent">
+
                 </div>
             </nav>
         </header>
+        <div>
+            <div class="row d-flex fex-row-reverse aboutPg justify-content-center">
+                <p class="col-6 bg-dark mt-30">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam eveniet nesciunt, 
+                    laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente? Aut, sit at. 
+                    Velit, corrupti.
+                </p>
+            </div>
+            <div class="row text-center">
+                <div class="column1 col mt-4">
+                    <input type="text" placeholder="Playlist Name" id="newPlaylist">
+                    <hr>
+                    <button class="btn btn-primary" id="createBtn">Create Playlist</button>
+                    <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
+                    <div class="playlist"></div>
+                </div>
+                <div class="column2 col mt-4">
+                    <h2>Player</h2>
+                    <hr>
+                    <div class="spotifyPlayer"></div>
+                </div>
+                <div class="column3 col mt-4">
+                    <h2>Songlist</h2>
+                    <hr>
+                    <div class="songList"></div>
+                </div>
+            </div>
+            <div class="row d-flex flex-row-reverse">
+                <div class="column4 col-md-6 mt-4 recentlySearched">
+                    <h2>Recently Played</h2>
+                    <p>History of your recently played songs</p>
+                    <hr>
+                    <ul id="recentlyPlayed">
+                    </ul>
+                </div>
+            </div>
+            <div class="row d-flex fex-row-reverse">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </button>
+                            </h5>
+                        </div>
 
-        <main>
-            <div class="container-fluid text-center">
-                <div class="row content-fluid justify-content-end">
-                    <div class="col-sm-2 mt-4 ml-3 mr-3 sidenav">
-                        <p><a href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
-                                to Spotify</a>
-                        </p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
-                        <!-- <input type="text" placeholder="Playlist Name" id="newPlaylist">
-                        <button class="btn btn-primary" id="createBtn">Create Playlist</button> -->
-                        <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
-                        <div class="playlist"></div>
-                    </div>
-                    <div class="col-sm-3">
-                        <h1>Spotfiy Player</h1>
-                        <p>Information here</p>
-                        <hr>
-                        <div class=spotifyPlayer></div>
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 songList">
-                        <h1>Spotfiy Songlist</h1>
-                        <p>Information here</p>
-                        <hr>
-                        <div class="songList"></div>
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 recentlySearched">
-                        <h1>Recently Played</h1>
-                        <p>history of your recently played songs</p>
-                        <hr>
-                        <ul id="recentlyPlayed">
-                        </ul>
-                    </div>
-                    <div class="col-xs-8 col-sm-4 col-md-10 col-lg-8 col-centered lyricInfo">
-                        <hr>
-                        <h3>Test</h3>
-                        <p>Lyric Information Here...</p>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <h2>Song & Artist Information</h2>
+                                <hr>
+                                <div id="metaInfo"></div>
+                                <div id="lyricsBlock"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </wrapper>
+        </div>
+    </div>
 
+    <footer>
     </footer>
+
+
     <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/debounce.js"></script>
     <script src="cookie.js"></script>
     <script src="spotify.js"></script>
     <script src="musicmatch.js"></script>
