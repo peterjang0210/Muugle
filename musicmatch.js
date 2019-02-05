@@ -2,33 +2,35 @@ const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
     $("#metaInfo").html(blockTemplate);
-    console.log(blockTemplate);
 }
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<p class="lyricsSection">Lyrics:<p class="lyricsBody">${lyricsBody}</p></p>`);
     $("#lyricsBlock").html(blockTemplate);
-    console.log(blockTemplate);
 }
 
 const infoRefine = function (songName, artistName) {
     $.ajax({
         url: `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        if (response.message == "Track not found"){
-            metaBlock(songName, artistName, "No album info found");
-        }
-        else if (response.track.album != undefined) {
-            const albumName = response.track.album.title;
-            //create meta block
-            metaBlock(songName, artistName, albumName);
-        } else {
-            metaBlock(songName, artistName, "No album info found");
-        }
 
+        method: "GET",
+        success: function (response) {
+            if (response.message == "Track not found") {
+                metaBlock(songName, artistName, "No album info found");
+            }
+            else if (response.track.album != undefined) {
+                const albumName = response.track.album.title;
+                //create meta block
+                metaBlock(songName, artistName, albumName);
+            } else {
+                metaBlock(songName, artistName, "No album info found");
+            }
+        },
+        error: function() {
+            metaBlock("Track not found", "Artist not found", "No album info found");
+
+        }
     })
 
 
@@ -36,11 +38,11 @@ const infoRefine = function (songName, artistName) {
     $.ajax({
         url: `https://api.lyrics.ovh/v1/${artistName}/${songName}`,
         method: "GET",
-        success: function(response){
+        success: function (response) {
             const lyrics = decodeURI(encodeURI(response.lyrics).replace(/%0A/g, "<br/>"));
             lyricsBlock(`${lyrics}`);
         },
-        error: function(){
+        error: function () {
             lyricsBlock("No lyrics available");
         }
     })
