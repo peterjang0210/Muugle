@@ -93,11 +93,19 @@ const renderTrack = function (response) {
             trackID: trackArray[i].id,
             uri: trackArray[i].uri
         })
-        $(".songList").append(`<div class="btn-group">
-        <button data-trackID="${infoList[i].trackID}" class="playSong btn-light">
-        <p>Song:${infoList[i].track}</p>
-        <p>Artist:${infoList[i].artist}</p></button>
-        <button data-uri="${infoList[i].uri}" class="addToPlaylist btn-light">Add</button><button data-uri="${infoList[i].uri}" class="deleteFromPlaylist btn-light">Delete</button></div>`);
+        $(".songList").append(
+            `<tr>
+            <td data-trackID="${infoList[i].trackID}" class="playSong align-middle">
+                <p>Song:${infoList[i].track}</p>
+                <p>Artist:${infoList[i].artist}</p>
+            </td>
+            <td data-uri="${infoList[i].uri}" class="addToPlaylist align-middle">
+                Add
+            </td>
+            <td data-uri="${infoList[i].uri}" class="deleteFromPlaylist align-middle">
+                Delete
+            </td>
+        </tr>`);
     }
 }
 
@@ -126,6 +134,13 @@ const embedPlaylist = function () {
     $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
+const delayDisplay = function () {
+    console.log("hello");
+    _.debounce(setTimeout(function(){
+        $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    }, 30000), 5000);
+}
+
 const addToPlaylist = function () {
     const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
     const accessToken = parseAccessToken();
@@ -136,9 +151,7 @@ const addToPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function () {
-            _.debounce(setTimeout(function () {
-                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-            }, 30000), 5000);
+            delayDisplay();
         }
     })
 }
@@ -157,9 +170,7 @@ const deleteFromPlaylist = function () {
         },
         contentType: "application/json",
         success: function () {
-            _.debounce(setTimeout(function () {
-                $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-            }, 30000), 5000);
+            delayDisplay();
         }
     })
 }
