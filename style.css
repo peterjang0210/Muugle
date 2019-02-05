@@ -11,7 +11,7 @@ html, body {
 }
 
 .column1, .column2, .column3, .column4, .column5 {
-    height: auto;
+    height:400px;
     border: solid 2px black;
     border-radius: 10px;
     margin: 10px;
@@ -92,6 +92,10 @@ body {
     background-color: #9FB4C7;
     margin-right: 5px;
     margin-bottom: 5px;
+}
+
+td:hover{
+    background-color: #9FB4C7;
 }
 
 .playlist{

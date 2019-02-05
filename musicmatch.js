@@ -2,14 +2,12 @@ const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
     $("#metaInfo").html(blockTemplate);
-    console.log(blockTemplate);
 }
 
 const lyricsBlock = function (lyricsBody) {
     const blockTemplate = $("<div>");
     blockTemplate.append(`<p class="lyricsSection">Lyrics:<p class="lyricsBody">${lyricsBody}</p></p>`);
     $("#lyricsBlock").html(blockTemplate);
-    console.log(blockTemplate);
 }
 
 const infoRefine = function (songName, artistName) {
@@ -17,7 +15,6 @@ const infoRefine = function (songName, artistName) {
         url: `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=bc5ef36457edb15455aad8c84e027791&artist=${artistName}&track=${songName}&format=json`,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
         if (response.message == "Track not found"){
             metaBlock(songName, artistName, "No album info found");
         }
