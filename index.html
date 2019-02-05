@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
 </head>
 
 <body>
@@ -52,54 +53,96 @@
             </nav>
         </header>
         <div>
-            <div class="row d-flex fex-row-reverse aboutPg justify-content-center">
-                <p class="col-6 bg-dark mt-30">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam eveniet nesciunt, 
-                    laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente? Aut, sit at. 
-                    Velit, corrupti.
-                </p>
+            <div class="row justify-content-center">
+                <div class="col-6 column0 ml-3 mr-3 mt-4 rounded">
+                    <h3 class="text-left">
+                        Muugle, <br>
+                        the Music Search Engine for Free Music Streaming
+                        <hr>
+                    </h3>
+                    <p class="text-left mt-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eaque. Tenetur ipsam
+                        eveniet nesciunt,<br>
+                        laborum vel dicta suscipit amet consectetur doloremque, porro veritatis consequatur sapiente?
+                        Aut, sit at.
+                        Velit, corrupti.
+                    </p>
+                </div>
             </div>
-            <div class="row text-center">
-                <div class="column1 col mt-4">
-                    <input type="text" placeholder="Playlist Name" id="newPlaylist">
+            <div class="row text-center justify-content-center">
+                <div class="column1 col-xs-12 col ml-3 mr-3 mt-4">
+                    <h2>Playlist</h2>
                     <hr>
-                    <button class="btn btn-primary" id="createBtn">Create Playlist</button>
+                    <input type="text" placeholder="Playlist Name" id="newPlaylist"><br>
+                    <button class="btn btn-primary" id="createBtn">Create Playlist</button><br>
                     <button class="btn btn-primary" id="displayBtn">Display Playlists</button>
                     <div class="playlist"></div>
                 </div>
-                <div class="column2 col mt-4">
+                <div class="column2 col-xs-12 col ml-3 mr-3 mt-4">
                     <h2>Player</h2>
                     <hr>
                     <div class="spotifyPlayer"></div>
                 </div>
-                <div class="column3 col mt-4">
+                <div class="column3 col-xs-12 col ml-3 mr-3 mt-4">
                     <h2>Songlist</h2>
                     <hr>
                     <div class="songList"></div>
                 </div>
             </div>
-            <div class="row d-flex flex-row-reverse">
-                <div class="column4 col-md-6 mt-4 recentlySearched">
+            <div class="row justify-content-center">
+                <div class="column4 col-xs-12 col-md-4 col-lg-4 mt-4 ml-3 mr-3 recentlySearched">
                     <h2>Recently Played</h2>
                     <p>History of your recently played songs</p>
                     <hr>
                     <ul id="recentlyPlayed">
                     </ul>
                 </div>
-            </div>
-            <div class="row d-flex fex-row-reverse">
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
+                <!-- <div class="column5">
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                            aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element
+                        </a>
+                    </p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse" id="multiCollapseExample1">
+                                <div class="card card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson
+                                    ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt
+                                    sapiente ea proident.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col column5">
+                    <h2>Song & Artist Information</h2>
+                    <hr>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lyricsInfo">Lyrics
+                        </button>
+                    <div id="lyricsInfo" class="collapse">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus expedita laudantium deserunt doloribus explicabo reprehenderit soluta laborum, harum rerum! 
+                            Dignissimos at cum quasi itaque earum mollitia excepturi eligendi nemo in.
+                        </p>
+                        <div id="metaInfo"></div>
+                        <div id="lyricsBlock"></div>
+                    </div>
+                </div>
+                <!-- <div id="accordion" class="acoordion">
+                    <div class="card column5 col-xs-12 col-md-12 col-lg-12 mt-4 ml-3 mr-3">
+                        <div class="card-header" id="lyricHeading">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#lyricCollapse"
                                     aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
+                                    Lyric Information
                                 </button>
                             </h5>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div id="lyricCollapse" class="collapse show" aria-labelledby="lyricHeading" data-parent="#accordion">
                             <div class="card-body">
                                 <h2>Song & Artist Information</h2>
                                 <hr>
@@ -108,9 +151,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
+    </div>
     </div>
 
     <footer>
@@ -125,6 +169,7 @@
     <script src="spotify.js"></script>
     <script src="musicmatch.js"></script>
     <script src="render.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
