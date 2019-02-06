@@ -8,6 +8,10 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     background-color: #B4B7BA;
+    background-image: url("antique-black-and-white-classic-1021876.jpg");
+    background-position: left bottom;
+    background-size: 4000px 3000px;
+    color: #1D1E2C;
 }
 
 .column0, .column1, .column2, .column3, .column4, .column5 {
@@ -44,11 +48,12 @@ html, body {
 }
 
 .column1, .column3 {
-    background-color:  #f0ead6;
+    background-color:  #2C363F;
+    color:#B4B7BA;
 }
 
 .column2, .column4 {
-    background-color:  #BFD641;
+    background-color:  #59656F;
 }
 
 .loader {
@@ -136,7 +141,7 @@ td{
 }
 
 td:hover{
-    background-color: #9FB4C7;
+    background-color: #59656F;
     cursor: pointer;
 }
 
