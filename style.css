@@ -212,6 +212,7 @@ iframe{
     background-color: transparent;
     border-color: #1D1E2C;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 /* meta and lyrics info */

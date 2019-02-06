@@ -112,7 +112,7 @@ const renderTrack = function (response) {
                 Delete
             </td>
         </tr>`);
-        if(i === trackArray.length - 1){
+        if (i === trackArray.length - 1) {
             $("#songTable").prepend(
                 `<div id="clearButton"><button id="clear" class="align-middle">Clear</button></div>`
             )
@@ -150,9 +150,9 @@ const embedPlaylist = function () {
     $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
-//debounces clicks to display playlist within 5 seconds
+//delay display to render playlist after 30 seconds
 const delayDisplay = function () {
-    setTimeout(function(){
+    setTimeout(function () {
         $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     }, 30000);
 }
@@ -167,9 +167,7 @@ const addToPlaylist = function () {
         headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-        success: function () {
-            delayDisplay();
-        }
+        success: _.debounce(delayDisplay, 5000)
     })
 }
 
@@ -187,9 +185,7 @@ const deleteFromPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         contentType: "application/json",
-        success: function () {
-            delayDisplay();
-        }
+        success: _.debounce(delayDisplay, 5000)
     })
 }
 
