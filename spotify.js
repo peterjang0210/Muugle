@@ -1,3 +1,4 @@
+//breaks user input into strings that can be input into Spotify API Calls
 const searchSpotify = function (event) {
     event.preventDefault();
     const userInput = $("#searchBar").val().trim();
@@ -22,6 +23,7 @@ const searchSpotify = function (event) {
     }
 }
 
+//function to parse Access Token in url
 const parseAccessToken = function () {
     const index1 = window.location.hash.indexOf("=") + 1;
     const index2 = window.location.hash.indexOf("&");
@@ -29,6 +31,7 @@ const parseAccessToken = function () {
     return accessToken;
 }
 
+//API call to Spotify to get tracks related to the search term
 const queryTrack = function (track, artist) {
     const accessToken = parseAccessToken();
     let queryURL = "";
@@ -51,6 +54,7 @@ const queryTrack = function (track, artist) {
     })
 }
 
+//API call to Spotify to get artists related to the search term
 const queryArtist = function (artist) {
     const accessToken = parseAccessToken();
     const queryURL = `https://api.spotify.com/v1/search?q=${artist}&type=artist`;
@@ -66,6 +70,7 @@ const queryArtist = function (artist) {
     })
 }
 
+//API call to Spotify to get playlists in user's account
 const queryPlaylist = function () {
     const accessToken = parseAccessToken();
 
@@ -82,6 +87,7 @@ const queryPlaylist = function () {
 
 const infoList = [];
 
+//call to render queried tracks from API call in formatted table along with add and delete buttons
 const renderTrack = function (response) {
     $(".songList").empty();
     infoList.length = 0;
@@ -109,6 +115,7 @@ const renderTrack = function (response) {
     }
 }
 
+//call to render queried artists from API call in formatted table
 const renderArtist = function (response) {
     $(".songList").empty();
     infoList.length = 0;
@@ -118,11 +125,13 @@ const renderArtist = function (response) {
             artist: artistArray[i].name,
             artistID: artistArray[i].id
         })
-        $(".songList").append(`<button id="${infoList[i].artistID}" class="btn-light">Artist:${infoList[i].artist}</button>`);
+        $(".songList").append(`<tr>
+        <td id="${infoList[i].artistID}" class="align-middle">Artist: ${infoList[i].artist}</td></tr>`);
         $(`#${infoList[i].artistID}`).on('click', playPlaylist);
     }
 }
 
+//renders buttons with playlist names
 const renderPlaylists = function (response) {
     $(".playlist").empty();
     for (let i = 0; i < response.items.length; i++) {
@@ -130,17 +139,20 @@ const renderPlaylists = function (response) {
     }
 }
 
+//render selected playlist
 const embedPlaylist = function () {
     playlistID = $(this).attr("data-playlistID");
     $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
+//debounces clicks to display playlist within 5 seconds
 const delayDisplay = function () {
     _.debounce(setTimeout(function(){
         $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     }, 30000), 5000);
 }
 
+//adds selected song to the playlist
 const addToPlaylist = function () {
     const trackURI = $(this).attr("data-uri").replace(":", "%3A").replace(":", "%3A");
     const accessToken = parseAccessToken();
@@ -156,6 +168,7 @@ const addToPlaylist = function () {
     })
 }
 
+//deletes selected song from the playlist
 const deleteFromPlaylist = function () {
     const trackURI = $(this).attr("data-uri");
     const accessToken = parseAccessToken();
@@ -175,6 +188,7 @@ const deleteFromPlaylist = function () {
     })
 }
 
+//makes API call to get userID
 const getUserID = function () {
     const accessToken = parseAccessToken();
     $.ajax({
@@ -188,6 +202,7 @@ const getUserID = function () {
     })
 }
 
+//creates a playlist with the name given by the user input
 const createPlaylist = function (response) {
     const accessToken = parseAccessToken();
     const playlistName = $("#newPlaylist").val();
@@ -207,6 +222,7 @@ const createPlaylist = function (response) {
     $("#newPlaylist").val("");
 }
 
+//embeds a player with the selected song, passes info to musicmatch.js for meta information and lyrics, and passes info to cookie.js
 const playSong = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
@@ -227,11 +243,13 @@ const playSong = function () {
     })
 }
 
+//embeds playlist with popular songs of the selected artist
 const playPlaylist = function () {
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe src="https://open.spotify.com/embed/artist/${this.id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
+//click events
 $("#searchBtn").on("click", searchSpotify);
 $("#createBtn").on("click", getUserID);
 $("#displayBtn").on("click", queryPlaylist);
