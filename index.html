@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Muugle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css?2" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -41,7 +40,7 @@
                             <a class="nav-link " data-value="portfolio">Playlists</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sidenav" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=https://peterjang0210.github.io/Music-Search-App/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                            <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=https://peterjang0210.github.io/Music-Search-App/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a>
                         </li>
                     </ul>
@@ -99,6 +98,13 @@
                     <hr>
                     <table class="table table-hover">
                         <tbody class="songList">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle">Click to Play</th>
+                                    <th scope="col" class="align-middle">Add to Playlist</th>
+                                    <th scope="col" class="align-middle">Delete From Playlist</th>
+                                </tr>
+                            </thead>
                         </tbody>
                     </table>
                 </div>
@@ -108,8 +114,15 @@
                     <h2>Recently Played</h2>
                     <p>History of your recently played songs</p>
                     <hr>
-                    <ul id="recentlyPlayed">
-                    </ul>
+                    <table class="table table-hover">
+                        <tbody id="recentlyPlayed">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle">Click to Play</th>
+                                </tr>
+                            </thead>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="column5 col-xs-12 col-md-6 col-lg-8 mt-4 ml-3 mr-3">
                     <p>
@@ -125,7 +138,11 @@
                             <div class="collapse" id="lyricsCollapse">
                                 <div class="card card-body">
                                     <div id="metaInfo"></div>
-                                    Test
+
+                                    Song Information Here
+
+                                    <hr>
+
                                     <div id="lyricsBlock"></div>
                                 </div>
                             </div>
@@ -143,9 +160,6 @@
             crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
         <script src="cookie.js"></script>
-        <script src="spotify.js">
-        </script>
-        <script src="musicmatch.js"></script>
         <script src="render.js"></script>
         <script src="app.js"></script>
         <script src="spotify.js?2"></script>

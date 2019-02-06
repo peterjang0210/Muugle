@@ -8,11 +8,15 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url("images/turntable-2154823_1920.jpg");
 }
 
 .row {
     flex: 1;
+    background-color: #B4B7BA;
+    background-image: url("antique-black-and-white-classic-1021876.jpg");
+    background-position: left bottom;
+    background-size: 4000px 3000px;
+    color: #1D1E2C;
 }
 
 .column0, .column1, .column2, .column3, .column4 {
@@ -24,7 +28,7 @@ html, body {
     padding-bottom: 15px;
     text-align: center;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .card-body {
@@ -68,7 +72,7 @@ html, body {
 }
 
 .column2, .column4 {
-    background-color:  #2C363F;
+    background-color:  #59656F;
     opacity: 0.9;
 }
 
@@ -79,7 +83,8 @@ html, body {
 }
 
 .column2 h2, .column2 h3, .column4 h2, .column4 p, .column4 h3 {
-    color: white;
+    background-color:  #2C363F;
+    color:#B4B7BA;
 }
 
 .loader {
@@ -159,8 +164,39 @@ body {
     margin-bottom: 5px;
 }
 
+td{
+    transition: background-color .5s ease-in;
+}
+
 td:hover{
-    background-color: #9FB4C7;
+    background-color: #59656F;
+    cursor: pointer;
+}
+
+.recentlyPlayedBtn:hover {
+    background-color: #B4B7BA;
+    cursor: pointer;
+}
+
+.recentlySearched {
+    color: #B4B7BA;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+iframe{
+    animation-duration: 2s;
+    animation-name: fadeIn;
 }
 
 .playlist{
