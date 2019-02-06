@@ -22,7 +22,6 @@ html, body {
 
 .column0, .column1, .column2, .column3, .column4 {
     height: 500px;
-    width: auto;
     border: solid 2px gray;
     border-radius: 30px;
     margin: 10px;
@@ -148,6 +147,10 @@ body {
     border-radius: 0;
     background-color: #1d1e2c;
     border-radius: 30px;
+}
+
+.navbar-toggler {
+    color: white;
 }
 
 #searchBar {
