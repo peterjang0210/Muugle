@@ -207,6 +207,13 @@ iframe{
     height: 330px;
     overflow: scroll;
 }
+
+#clear{
+    background-color: transparent;
+    border-color: #1D1E2C;
+    margin-bottom: 15px;
+}
+
 /* meta and lyrics info */
 .songName {
     font-size: 25px;

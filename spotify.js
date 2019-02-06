@@ -140,7 +140,7 @@ const renderArtist = function (response) {
 const renderPlaylists = function (response) {
     $(".playlist").empty();
     for (let i = 0; i < response.items.length; i++) {
-        $(".playlist").html(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
+        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
     }
 }
 
@@ -152,9 +152,9 @@ const embedPlaylist = function () {
 
 //debounces clicks to display playlist within 5 seconds
 const delayDisplay = function () {
-    _.debounce(setTimeout(function(){
+    setTimeout(function(){
         $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
-    }, 30000), 5000);
+    }, 30000);
 }
 
 //adds selected song to the playlist
@@ -193,15 +193,16 @@ const deleteFromPlaylist = function () {
     })
 }
 
+//clears songs from songlist div
 const clearSongs = function () {
     $("#songTable > #clearButton").empty();
     $(".songList").empty();
 }
 
-//renders 
+//renders input field and submit button to create playlist
 const displayInput = function () {
     $(".playlist").empty();
-    $(".playlistHead").append(`<div class="playlistInput"><input id="newPlaylist" type="text" placeholder="Name of Playlist"> <button class ="btn btn-primary" id="submitBtn">Submit</button></div>`)
+    $(".playlistHead").append(`<div class="playlistInput"><input id="newPlaylist" type="text" placeholder="Name of Playlist"> <button class ="btn btn-primary" id="submitBtn">Create</button></div>`)
 }
 
 //makes API call to get userID
