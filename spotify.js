@@ -257,3 +257,4 @@ $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
 $(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
+$(`#recentlyPlayed`).on('click', ".playSong", playSong);
