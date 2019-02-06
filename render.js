@@ -10,4 +10,3 @@ for (var i in cookie) {
         </td>
     </tr>`);
 }
-// On button click append iframe to player

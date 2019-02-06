@@ -226,6 +226,18 @@ iframe{
     overflow: auto;
 }
 
+#clearSection {
+    position:absolute;
+    bottom: 10px;
+    width: 100%;
+    background: transparent;
+}
+
+.clearButton {
+    margin: 0 auto;
+}
+
+
 
 @media only screen  and (max-width: 980px) {
     .footer {
