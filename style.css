@@ -145,6 +145,15 @@ td:hover{
     cursor: pointer;
 }
 
+.recentlyPlayedBtn:hover {
+    background-color: #B4B7BA;
+    cursor: pointer;
+}
+
+.recentlySearched {
+    color: #B4B7BA;
+}
+
 @keyframes fadeIn {
     0% {
       opacity: 0;
