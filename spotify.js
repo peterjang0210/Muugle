@@ -90,6 +90,7 @@ const infoList = [];
 //call to render queried tracks from API call in formatted table along with add and delete buttons
 const renderTrack = function (response) {
     $(".songList").empty();
+    console.log(response);
     infoList.length = 0;
     const trackArray = response.tracks.items;
     for (let i = 0; i < trackArray.length; i++) {
@@ -97,27 +98,30 @@ const renderTrack = function (response) {
             track: trackArray[i].name,
             artist: trackArray[i].artists[0].name,
             trackID: trackArray[i].id,
-            uri: trackArray[i].uri
+            uri: trackArray[i].uri,
+            albumImage: trackArray[i].album.images[0].url
         })
         $(".songList").append(
-            `<tr>
+        `<tr>
             <td data-trackID="${infoList[i].trackID}" class="playSong align-middle">
-                <p>Song: ${infoList[i].track}</p>
-                <p>Artist: ${infoList[i].artist}</p>
+                <p class="metaText">Song: ${infoList[i].track}</p>
+                <p class="metaText">Artist: ${infoList[i].artist}</p>
+                <img src =${infoList[i].albumImage} alt="Album Cover" class="albumImage">
             </td>
             <td data-uri="${infoList[i].uri}" class="addToPlaylist align-middle">
-                Add
+                +
             </td>
             <td data-uri="${infoList[i].uri}" class="deleteFromPlaylist align-middle">
-                Delete
+                -
             </td>
         </tr>`);
         if (i === trackArray.length - 1) {
+            $("#songTable > #clearButton").empty();
             $("#songTable").prepend(
-                `<div id="clearButton"><button id="clear" class="align-middle">Clear</button></div>`
-            )
+                `<div id="clearButton"><button id="clear" class="align-middle">Clear</button></div>`);
         }
     }
+    console.log(infoList);
 }
 
 //call to render queried artists from API call in formatted table

@@ -172,6 +172,19 @@ td:hover{
     cursor: pointer;
 }
 
+.metaText{
+    font-size: 20px;
+}
+
+.albumImage{
+    max-width: 50%;
+    height: auto;
+}
+
+.addToPlaylist, .deleteFromPlaylist{
+    font-size: 50px;
+}
+
 .recentlyPlayedBtn:hover {
     background-color: #B4B7BA;
     cursor: pointer;
