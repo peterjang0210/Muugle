@@ -96,8 +96,8 @@ const renderTrack = function (response) {
         $(".songList").append(
             `<tr>
             <td data-trackID="${infoList[i].trackID}" class="playSong align-middle">
-                <p>Song:${infoList[i].track}</p>
-                <p>Artist:${infoList[i].artist}</p>
+                <p>Song: ${infoList[i].track}</p>
+                <p>Artist: ${infoList[i].artist}</p>
             </td>
             <td data-uri="${infoList[i].uri}" class="addToPlaylist align-middle">
                 Add
@@ -124,6 +124,7 @@ const renderArtist = function (response) {
 }
 
 const renderPlaylists = function (response) {
+    $(".playlist").empty();
     for (let i = 0; i < response.items.length; i++) {
         $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
     }
@@ -135,7 +136,6 @@ const embedPlaylist = function () {
 }
 
 const delayDisplay = function () {
-    console.log("hello");
     _.debounce(setTimeout(function(){
         $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     }, 30000), 5000);
