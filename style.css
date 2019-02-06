@@ -4,19 +4,23 @@
 }
   
 html, body {
-    height: 100%;
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #B4B7BA;
+    background-image: url("images/turntable-2154823_1920.jpg");
 }
 
-.column0, .column1, .column2, .column3, .column4, .column5 {
+.row {
+    flex: 1;
+}
+
+.column0, .column1, .column2, .column3, .column4 {
     height: 500px;
     border: solid 2px gray;
     border-radius: 30px;
     margin: 10px;
     padding-top: 15px;
-    /* padding: 15px; */
     padding-bottom: 15px;
     text-align: center;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
@@ -25,7 +29,7 @@ html, body {
 
 .card-body {
     border-radius: 30px;
-    background-color: #f0ead6;
+    background-color: #B4B7BA;
 }
 
 .container-fluid {
@@ -36,7 +40,9 @@ html, body {
 
 .column0 {
     height: 450px;
-    width: 650px
+    width: 650px;
+    background-color: #B4B7BA;
+    opacity: 0.9;
 }
 
 #createBtn, #displayBtn {
@@ -44,11 +50,36 @@ html, body {
 }
 
 .column1, .column3 {
-    background-color:  #f0ead6;
+    background-color: #B4B7BA;
+    opacity: 0.9;
+}
+
+.column5 {
+    background-color: #B4B7BA;
+    opacity: 0.9;
+    border: solid 2px gray;
+    border-radius: 30px;
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    box-shadow: 0px 30px 40px rgba(0,0,0,.1);
+    overflow: hidden;
 }
 
 .column2, .column4 {
-    background-color:  #BFD641;
+    background-color:  #2C363F;
+    opacity: 0.9;
+}
+
+.jumbotron {
+    background-color: #59656F;
+    color: white;
+    border: solid 2px gray;
+}
+
+.column2 h2, .column2 h3, .column4 h2, .column4 p, .column4 h3 {
+    color: white;
 }
 
 .loader {
@@ -100,6 +131,7 @@ body {
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
+    background-color: #1d1e2c;
 }
   
 .row.content {height: auto;}
@@ -109,15 +141,11 @@ body {
 }
 
 .footer {
+    border: solid 2px gray;
     height: 60px;
-    background-color: #666666;
-    border-top: 5px solid teal;
-    color: white;
-    text-align: center;
-    width: 100%;
-    margin-bottom: -150px;
-    bottom: 0; 
-    position: sticky;
+    background-color: #59656F;
+    color: white;    
+    min-width: 100%;
     margin-top: 60px;
 }
 
