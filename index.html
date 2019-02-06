@@ -40,8 +40,11 @@
                             <a class="nav-link " data-value="portfolio">Playlists</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=https://peterjang0210.github.io/Music-Search-App/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                            <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a>
+
+                            <!-- <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                                to Spotify</a> -->
                         </li>
                     </ul>
                 </div>
@@ -110,9 +113,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="column4 col-xs-12 col-md-5 col-lg-3 mt-4 ml-3 mr-3 recentlySearched">
+                <div class="column4 col-xs-12 col-md-5 col-lg-3">
                     <h2>Recently Played</h2>
-                    <p>History of your recently played songs</p>
+                    <span class="clearSection">
+                        <button class="btn btn-primary" id="clearButton">Clear History</button>
+                    </span>
                     <hr>
                     <table class="table table-hover">
                         <tbody id="recentlyPlayed">
@@ -123,11 +128,6 @@
                             </thead>
                         </tbody>
                     </table>
-                    <div class="row" id="clearSection">
-                        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 clearButton">
-                            <button id="clearButton">clear</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="column5 col-xs-12 col-md-6 col-lg-8 mt-4 ml-3 mr-3">
                     <p>
