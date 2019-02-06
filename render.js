@@ -4,7 +4,7 @@ var cookie = getCookie('trackhistory');
 for (var i in cookie) {
     $("#recentlyPlayed").append(
         `<tr>
-        <td data-trackID="${cookie[i].trackID}" class="playSong align-middle">
+        <td data-trackID="${cookie[i].trackID}" class="playSong recentlyPlayedBtn align-middle">
             <p>Song: ${cookie[i].track}</p>
             <p>Artist: ${cookie[i].artist}</p>
         </td>
