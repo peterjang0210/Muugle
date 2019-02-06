@@ -146,19 +146,23 @@ td:hover{
 }
 /* meta and lyrics info */
 .songName {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
 }
 
 .albumName {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 
 .artistName {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 
 .lyricsBody {
-    height: 170px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 250px;
     overflow: auto;
 }
 
@@ -167,8 +171,41 @@ td:hover{
     .footer {
         margin-top: 20px;
     }    
+
+    /* meta and lyrics info */
+
+    .meta {
+        margin-bottom: 10px;
+    }
+
+    .lyrics {
+        padding-bottom: 0px;
+    }
+
+    .songName {
+        font-size: 20px;
+    }
+    
+    .albumName {
+        font-size: 15px;
+    }
+    
+    .artistName {
+        font-size: 15px;
+    }
+
+    .lyricsSection {
+        margin-bottom: 5px;
+    }
+
+    .lyricsBody {
+        height: 150px;
+        margin-bottom: 0px;
+    }
 }
 @media only screen  and (max-width: 768px) {
+
+    
     .footer {
         margin-top: 20px;
     }

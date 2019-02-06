@@ -68,6 +68,9 @@ const infoPull = function (song, artist) {
     infoRefine(songName, artistName);
 }
 
+
+infoPull("7 rings", "ariana grande");
+
 //testing and legacy/backup area
 
 // // const render = function (event) {
