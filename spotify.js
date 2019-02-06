@@ -112,6 +112,11 @@ const renderTrack = function (response) {
                 Delete
             </td>
         </tr>`);
+        if(i === trackArray.length - 1){
+            $("#songTable").prepend(
+                `<div id="clearButton"><button id="clear" class="align-middle">Clear</button></div>`
+            )
+        }
     }
 }
 
@@ -135,7 +140,7 @@ const renderArtist = function (response) {
 const renderPlaylists = function (response) {
     $(".playlist").empty();
     for (let i = 0; i < response.items.length; i++) {
-        $(".playlist").prepend(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
+        $(".playlist").html(`<button data-playlistID="${response.items[i].id}" class="addPlaylist btn-light">${response.items[i].name}</button>`);
     }
 }
 
@@ -188,6 +193,17 @@ const deleteFromPlaylist = function () {
     })
 }
 
+const clearSongs = function () {
+    $("#songTable > #clearButton").empty();
+    $(".songList").empty();
+}
+
+//renders 
+const displayInput = function () {
+    $(".playlist").empty();
+    $(".playlistHead").append(`<div class="playlistInput"><input id="newPlaylist" type="text" placeholder="Name of Playlist"> <button class ="btn btn-primary" id="submitBtn">Submit</button></div>`)
+}
+
 //makes API call to get userID
 const getUserID = function () {
     const accessToken = parseAccessToken();
@@ -219,7 +235,7 @@ const createPlaylist = function (response) {
             'Authorization': 'Bearer ' + accessToken,
         }
     })
-    $("#newPlaylist").val("");
+    $(".playlistInput").empty();
 }
 
 //embeds a player with the selected song, passes info to musicmatch.js for meta information and lyrics, and passes info to cookie.js
@@ -251,8 +267,10 @@ const playPlaylist = function () {
 
 //click events
 $("#searchBtn").on("click", searchSpotify);
-$("#createBtn").on("click", getUserID);
+$("#createBtn").on("click", displayInput);
+$(".playlistHead").on("click", "#submitBtn", getUserID);
 $("#displayBtn").on("click", queryPlaylist);
+$("#songTable").on('click', "#clear", clearSongs);
 $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
