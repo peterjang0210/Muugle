@@ -228,7 +228,7 @@ const playSong = function () {
     })
 }
 
-const playSong2 = function () {
+const playSongForRecentlyPlayed = function () {
     const trackID = $(this).attr("data-trackID");
     $('.spotifyPlayer').empty();
     $(".spotifyPlayer").append(`<iframe id="spotify-player" src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
@@ -261,5 +261,5 @@ $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
 $(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
 
-$(`#recentlyPlayed`).on('click', ".playSong", playSong2);
+$(`#recentlyPlayed`).on('click', ".playSong", playSongForRecentlyPlayed);
 $("#clearButton").click(clearCookie);
