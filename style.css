@@ -17,7 +17,9 @@ html, body {
     background-position: left bottom;
     background-size: 4000px 3000px;
     color: #1D1E2C;
+
 }
+
 
 .column0, .column1, .column2, .column3, .column4 {
     height: 500px;
@@ -28,7 +30,7 @@ html, body {
     padding-bottom: 15px;
     text-align: center;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    overflow: scroll;
+    overflow: auto;
 }
 
 .card-body {
@@ -182,6 +184,12 @@ td:hover{
     color: #B4B7BA;
 }
 
+
+#recentlyPlayed {
+    height: 200px;
+    overflow: auto;
+}
+
 @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -229,6 +237,18 @@ iframe{
     height: 250px;
     overflow: auto;
 }
+
+#clearSection {
+    position:absolute;
+    bottom: 10px;
+    width: 100%;
+    background: transparent;
+}
+
+.clearButton {
+    margin: 0 auto;
+}
+
 
 
 @media only screen  and (max-width: 980px) {

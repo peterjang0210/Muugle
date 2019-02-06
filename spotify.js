@@ -223,6 +223,7 @@ const playSong = function () {
             const artistName = response.artists[0].name;
             infoPull(songName, artistName);
             storeCookie(trackID, songName, artistName);
+            renderCookie();
         }
     })
 }
@@ -239,4 +240,6 @@ $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
 $(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
+
 $(`#recentlyPlayed`).on('click', ".playSong", playSong);
+$("#clearButton").click(clearCookie);
