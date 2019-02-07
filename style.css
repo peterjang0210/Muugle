@@ -278,7 +278,11 @@ iframe{
 }
 
 .meta, .lyrics {
-    background-color: #B4B7BA;
+    background-color: #F0EAD6;
+}
+
+.lyrics {
+    text-align: center;
 }
 
 .albumName {
