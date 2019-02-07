@@ -153,11 +153,12 @@ const embedPlaylist = function () {
 }
 
 //delay display to render playlist after 30 seconds
-const delayDisplay = function () {
+let delayDisplay = function () {
     setTimeout(function () {
         $(".playlist").html(`<iframe src="https://open.spotify.com/embed/playlist/${playlistID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
     }, 30000);
 }
+delayDisplay = _.debounce(delayDisplay, 5000);
 
 //adds selected song to the playlist
 const addToPlaylist = function () {
@@ -169,7 +170,7 @@ const addToPlaylist = function () {
         headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-        success: _.debounce(delayDisplay, 5000)
+        success: delayDisplay
     })
 }
 
@@ -187,7 +188,7 @@ const deleteFromPlaylist = function () {
             'Authorization': 'Bearer ' + accessToken
         },
         contentType: "application/json",
-        success: _.debounce(delayDisplay, 5000)
+        success: delayDisplay
     })
 }
 
@@ -199,7 +200,6 @@ const clearSongs = function () {
 
 //renders input field and submit button to create playlist
 const displayInput = function () {
-    console.log("test");
     $(".playlist").empty();
     $(".playlistHead").append(`<div class="playlistInput"><input id="newPlaylist" type="text" placeholder="Name of Playlist"> <button class ="btn btn-primary" id="submitBtn">Create</button></div>`)
 }
