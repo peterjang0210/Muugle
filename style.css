@@ -278,7 +278,7 @@ iframe{
 }
 
 .meta, .lyrics {
-    background-color: #B4B7BA;
+    background-color: #F0EAD6;
 }
 
 .albumName {
@@ -293,6 +293,7 @@ iframe{
 
 .lyricsBody {
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
     height: 250px;
     overflow: auto;
 }
