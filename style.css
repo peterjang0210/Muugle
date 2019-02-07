@@ -125,6 +125,10 @@ hr {
     width: auto;
 }
 
+.meta, .lyrics {
+    background-color: #B4B7BA;
+}
+
 .container-fluid {
     font-family: 'Ubuntu', sans-serif;
 }
