@@ -46,6 +46,7 @@ html, body {
     opacity: 0.9;
     margin-bottom: 10px;
     border-radius: 30px;
+    margin: auto;
 }
 
 .column1, .column3 {
