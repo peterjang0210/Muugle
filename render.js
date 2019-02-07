@@ -3,7 +3,7 @@ const renderCookie = function() {
 let cookie = getCookie('trackhistory');
     $("#recentlyPlayed").empty();
     for (var i in cookie) {
-        $("#recentlyPlayed").append(
+        $("#recentlyPlayed").prepend(
             `<tr>
             <td data-trackID="${cookie[i].trackID}" class="playSong recentlyPlayedBtn align-middle">
                 <p>Song: ${cookie[i].track}</p>
