@@ -271,7 +271,7 @@ td:hover{
     }
 }
 
-iframe{
+iframe, .playlistInput{
     animation-duration: 2s;
     animation-name: fadeIn;
 }

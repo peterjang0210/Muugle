@@ -8,5 +8,11 @@ Once the user logs in to their spotify account, the user can search for songs or
 
 The page also stores recently played songs in cookies so that the user can access them at a later time. The information about the song being played and the accompanying lyrics are displayed in a collapsable tab at the bottom of the page.
 
+## Technologies Used
+Framework: Bootstrap
+APIs: Spotify, last.fm, lyrics.ovh
+External javascript libraries: jQuery, lodash
+New Technologies: OAuth in Spotify API, cookies to store recently played, lodash debounce method
+
 ## Future Developments
-The true end goal of this application is to link other various music API's such as Apple Music and Soudncloud. The user will be able to create a playlist independent of those streaming platforms where they can add songs from any of the linked music streaming sources. Another feature that can be developed is the ability to view songs from similar genres and artists.
+The true end goal of this application is to link other various music API's such as Apple Music and Soundcloud. The user will be able to create a playlist independent of those streaming platforms where they can add songs from any of the linked music streaming sources. Another feature that can be developed is the ability to view songs from similar genres and artists.
