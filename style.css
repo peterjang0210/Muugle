@@ -53,6 +53,10 @@ html, body {
     opacity: 0.9;
 }
 
+.playlist, .recentlyPlayedTable{
+    overflow: auto;
+}
+
 .column5 {
     background-color: #B4B7BA;
     opacity: 0.9;
@@ -192,6 +196,19 @@ td:hover{
     cursor: pointer;
 }
 
+.metaText{
+    font-size: 20px;
+}
+
+.albumImage{
+    max-width: 50%;
+    height: auto;
+}
+
+.addToPlaylist, .deleteFromPlaylist{
+    font-size: 50px;
+}
+
 .recentlyPlayedBtn:hover {
     background-color: #B4B7BA;
     cursor: pointer;
@@ -266,6 +283,16 @@ iframe{
 .spotifyPlayer{
     height: 330px;
 }
+
+#clear{
+    background-color: transparent;
+    border-color: #1D1E2C;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+/* #recentlyPlayed {
+    overflow: auto;
+} */
 
 .nav-item {
     color: white;
