@@ -38,6 +38,8 @@
                             <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">
                                 Login to Spotify</a>
                         </li>
+                         <!-- <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                                to Spotify</a> -->
                         <li class="nav-item">
                             <a class="nav-link" data-value="about" href="about.html">About</a> </li>
                         <li class="nav-item">
@@ -103,7 +105,7 @@
                 </div>
             </div>
             <div class="row text-center justify-content-center mt-4 ml-3 mr-3">
-                <div class="column3 col-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
+                <div class="column3 overflow-auto col-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
                     <h2>Songlist</h2>
                     <hr>
                     <table class="table table-hover">
@@ -134,9 +136,12 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="column4 col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-4 ml-3 mr-3 recentlySearched">
+                <div class="column4 overflow-auto col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-4 ml-3 mr-3 recentlySearched">
                     <h2 class="p-3">Recently Played</h2>
                     <p class="p-3">History of your recently played songs</p>
+                    <span class="clearSection">
+                        <button class="btn btn-primary" id="clearButton">Clear History</button>
+                    </span>
                     <hr>
                     <table class="table table-hover p-3">
                         <tbody id="recentlyPlayed" class="p-3">

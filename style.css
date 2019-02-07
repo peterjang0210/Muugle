@@ -14,11 +14,14 @@ html, body {
 
 .row {
     flex: 1;
+    background-color: #B4B7BA;
+    background-image: url("antique-black-and-white-classic-1021876.jpg");
+    background-position: left bottom;
+    background-size: 4000px 3000px;
+    color: #1D1E2C;
+
 }
 
-.row1 {
-    justify-content: space-between;
-}
 
 .column0, .column1, .column2, .column3, .column4 {
     height: 500px;
@@ -241,6 +244,11 @@ td:hover{
     color: #B4B7BA;
 }
 
+
+#recentlyPlayed {
+    height: 200px;
+}
+
 @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -260,20 +268,19 @@ iframe{
 
 .playlist{
     height: 270px;
-    overflow: auto;
 }
 
-.songlist {
+/* .songlist {
     overflow: auto;
-}
+} */
 
 .spotifyPlayer{
     height: 330px;
 }
 
-#recentlyPlayed {
+/* #recentlyPlayed {
     overflow: auto;
-}
+} */
 
 .nav-item {
     color: white;
@@ -298,8 +305,20 @@ iframe{
 .lyricsBody {
     font-family: Arial, Helvetica, sans-serif;
     height: 250px;
-    overflow: auto;
+    /* overflow: auto; */
 }
+
+#clearSection {
+    position:absolute;
+    bottom: 10px;
+    width: 100%;
+    background: transparent;
+}
+
+.clearButton {
+    margin: 0 auto;
+}
+
 
 
 @media only screen  and (max-width: 980px) {

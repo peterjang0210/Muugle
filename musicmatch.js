@@ -69,7 +69,6 @@ const infoPull = function (song, artist) {
 }
 
 
-infoPull("7 rings", "ariana grande");
 
 //testing and legacy/backup area
 
