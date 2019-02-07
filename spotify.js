@@ -199,6 +199,7 @@ const clearSongs = function () {
 
 //renders input field and submit button to create playlist
 const displayInput = function () {
+    console.log("test");
     $(".playlist").empty();
     $(".playlistHead").append(`<div class="playlistInput"><input id="newPlaylist" type="text" placeholder="Name of Playlist"> <button class ="btn btn-primary" id="submitBtn">Create</button></div>`)
 }

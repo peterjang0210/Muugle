@@ -60,7 +60,7 @@ html, body {
     opacity: 0.9;
 }
 
-.column3, .column4{
+.playlist, .recentlyPlayedTable{
     overflow: auto;
 }
 

@@ -38,7 +38,7 @@
                             <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">
                                 Login to Spotify</a>
                         </li>
-                         <!-- <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
+                        <!-- <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
                                 to Spotify</a> -->
                         <li class="nav-item">
                             <a class="nav-link" data-value="about" href="about.html">About</a> </li>
@@ -63,8 +63,8 @@
                         <h2 class="p-3">Muugle, Get Started!</h2>
                     </p>
                     <p>
-                        <a class="btn" data-toggle="collapse" href="#infoCollapse" role="button"
-                            aria-expanded="false" aria-controls="infoCollapse">Muugle</a>
+                        <a class="btn" data-toggle="collapse" href="#infoCollapse" role="button" aria-expanded="false"
+                            aria-controls="infoCollapse">Muugle</a>
                     </p>
                     <hr>
                     <div class="row">
@@ -120,7 +120,7 @@
                                 </thead>
                             </tbody>
                         </table>
-                    </div>          
+                    </div>
                 </div>
                 <div class="column2 col-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
                     <h2>Player</h2>
@@ -130,9 +130,10 @@
                 <div class="column1 col-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
                     <h2>Playlist</h2>
                     <hr>
-                    <button class="btn" id="createBtn">Create Playlist</button>
-                    <button class="btn" id="displayBtn">Display Playlists</button>
-                    <input type="text" placeholder="Playlist Name" id="newPlaylist"><br>
+                    <div class="playlistHead">
+                        <button class="btn" id="createBtn">Create Playlist</button>
+                        <button class="btn" id="displayBtn">Display Playlists</button>
+                    </div>
                     <hr>
                     <div class="playlist"></div>
                 </div>
@@ -145,16 +146,18 @@
                         <button class="btn btn-primary" id="clearButton">Clear History</button>
                     </span>
                     <hr>
-                    <table class="table table-hover p-3">
-                        <tbody id="recentlyPlayed" class="p-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="align-middle p-3">Click to Play</th>
-                                </tr>
-                            </thead>
-                        </tbody>
-                    </table>
-                </div>                    
+                    <div class="recentlyPlayedTable">
+                        <table class="table table-hover p-3">
+                            <tbody id="recentlyPlayed" class="p-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="align-middle p-3">Click to Play</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <div class="column5 col-xs-12 col-sm-12 col-md-6 col-lg-8 mt-4 ml-3 mr-3 text-left">
                     <h2 class="p-3">
                         Artist and Lyric Information
@@ -187,7 +190,7 @@
         </div>
 
         <footer class="row footer justify-content-center">
-            Muugle © 
+            Muugle ©
         </footer>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
