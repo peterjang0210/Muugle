@@ -4,7 +4,7 @@
 // h3 tag containing artist name with class = artistName
 const metaBlock = function (songName, artistName, albumName) {
     const blockTemplate = $("<div>");
-    blockTemplate.append(`<h1 class="songName">Song: ${songName}</h1><h2 class="albumName">Album: ${albumName}<h2><h3 class="artistName">Artist: ${artistName}<h3>`);
+    blockTemplate.append(`<h4 class="songName">Song: ${songName}</h4><h5 class="albumName">Album: ${albumName}<h5><h6 class="artistName">Artist: ${artistName}<h6>`);
     $("#metaInfo").html(blockTemplate);
 }
 
