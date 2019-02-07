@@ -27,7 +27,6 @@ html, body {
     padding-bottom: 15px;
     text-align: center;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    overflow: scroll;
 }
 
 .card-body {
@@ -55,6 +54,10 @@ html, body {
 .column1, .column3 {
     background-color: #B4B7BA;
     opacity: 0.9;
+}
+
+.column3, .column4{
+    overflow: auto;
 }
 
 .column5 {
