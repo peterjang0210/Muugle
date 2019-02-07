@@ -9,17 +9,11 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     background-image: url("antique-black-and-white-classic-1021876.jpg");
-
+    overflow: auto;
 }
 
 .row {
     flex: 1;
-    /* background-color: #B4B7BA;
-    background-image: url("antique-black-and-white-classic-1021876.jpg");
-    background-position: left bottom;
-    background-size: 4000px 3000px;
-    color: #1D1E2C; */
-
 }
 
 
@@ -68,6 +62,7 @@ html, body {
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: center;
+    overflow: auto;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
 }
 
