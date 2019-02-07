@@ -8,6 +8,8 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-image: url("antique-black-and-white-classic-1021876.jpg");
+
 }
 
 .row {
@@ -43,14 +45,13 @@ html, body {
 }
 
 .column0 {
-    height: 450px;
-    width: 650px;
+    height: auto;
+    width: auto;
     background-color: #B4B7BA;
     opacity: 0.9;
-}
-
-#createBtn, #displayBtn {
-    margin: 10px;
+    overflow: auto;
+    margin-bottom: 10px;
+    border-radius: 30px;
 }
 
 .column1, .column3 {
@@ -87,8 +88,18 @@ html, body {
 }
 
 .column2 h2, .column2 h3, .column4 h2, .column4 p, .column4 h3 {
-    background-color:  #2C363F;
+    background-color: #2C363F;
     color:#B4B7BA;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.column0 h2, .column1 h2, .column3 h2, .column5 h2, .column1 h3, .column3 h3 {
+    background-color: #2C363F;
+    color:#B4B7BA;
+    border-radius: 30px;
+    padding: 5px;
+    width: auto;
 }
 
 .loader {
@@ -141,6 +152,19 @@ body {
     margin-bottom: 0;
     border-radius: 0;
     background-color: #1d1e2c;
+    border-radius: 30px;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+#searchBar {
+    border-radius: 30px;
+}
+
+.navbar-brand, .nav-link {
+    color: white;
 }
   
 .row.content {height: auto;}
@@ -156,6 +180,7 @@ body {
     color: white;    
     min-width: 100%;
     margin-top: 60px;
+    padding-top: 15px;
 }
 
 .addPlaylist{
@@ -163,7 +188,7 @@ body {
 }
 
 .btn-light{
-    background-color: #9FB4C7;
+    background-color: white;
     margin-right: 5px;
     margin-bottom: 5px;
 }
@@ -173,7 +198,7 @@ td{
 }
 
 td:hover{
-    background-color: #59656F;
+    background-color: white;
     cursor: pointer;
 }
 
@@ -195,6 +220,42 @@ td:hover{
     cursor: pointer;
 }
 
+.btn {
+    background-color: #2C363F;
+    border-radius: 30px;
+    color: #B4B7BA;
+}
+
+.btn:hover {
+    background-color:  #59656F;
+    cursor: pointer;
+    border-radius: 30px; 
+}
+
+.bioName2:hover {
+    background-color: #B4B7BA;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.bioName4:hover {
+    background-color: #B4B7BA;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.bioName1:hover {
+    background-color: #2C363F;
+    cursor: pointer;
+    border-radius: 30px;
+} 
+
+.bioName3:hover {
+    background-color: #2C363F;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
 .recentlySearched {
     color: #B4B7BA;
 }
@@ -202,7 +263,6 @@ td:hover{
 
 #recentlyPlayed {
     height: 200px;
-    overflow: auto;
 }
 
 @keyframes fadeIn {
@@ -224,12 +284,14 @@ iframe{
 
 .playlist{
     height: 270px;
-    overflow: scroll;
 }
+
+/* .songlist {
+    overflow: auto;
+} */
 
 .spotifyPlayer{
     height: 330px;
-    overflow: scroll;
 }
 
 #clear{
@@ -237,6 +299,13 @@ iframe{
     border-color: #1D1E2C;
     margin-bottom: 15px;
     cursor: pointer;
+}
+/* #recentlyPlayed {
+    overflow: auto;
+} */
+
+.nav-item {
+    color: white;
 }
 
 /* meta and lyrics info */
@@ -258,7 +327,7 @@ iframe{
 .lyricsBody {
     font-family: Arial, Helvetica, sans-serif;
     height: 250px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 #clearSection {

@@ -90,7 +90,6 @@ const infoList = [];
 //call to render queried tracks from API call in formatted table along with add and delete buttons
 const renderTrack = function (response) {
     $(".songList").empty();
-    console.log(response);
     infoList.length = 0;
     const trackArray = response.tracks.items;
     for (let i = 0; i < trackArray.length; i++) {
@@ -121,7 +120,6 @@ const renderTrack = function (response) {
                 `<div id="clearButton"><button id="clear" class="align-middle">Clear</button></div>`);
         }
     }
-    console.log(infoList);
 }
 
 //call to render queried artists from API call in formatted table
@@ -297,6 +295,5 @@ $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
 $(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
-
 $(`#recentlyPlayed`).on('click', ".playSong", playSongForRecentlyPlayed);
 $("#clearButton").click(clearCookie);
