@@ -290,6 +290,7 @@ iframe{
 .lyricsBody {
     font-family: Arial, Helvetica, sans-serif;
     height: 250px;
+    overflow: auto;
 }
 
 #clearSection {
