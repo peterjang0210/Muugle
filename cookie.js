@@ -5,16 +5,24 @@
 // Get the info
 // Put it into the same div types as songlist
 
+
 function getCookie(name) {
     var c = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return c == null ? []: JSON.parse(c[2]); // If nothing in cookie return empty array, otherwise parse the cookie so that it returns an array of song objects
 }
 
-const storeCookie = function (trackID, songName, artistName) {
+
+const storeCookie = function(trackID, songName, artistName) {
     var cookie = getCookie('trackhistory');
     const trackInfo = {'trackID': trackID, 'track': songName, 'artist': artistName}
     cookie.push(trackInfo);
 // JSON.stringify truns the array to a string so that it may be stored in the cookie
     document.cookie = `trackhistory=${JSON.stringify(cookie)}`
+}
+
+// Add clear functionality
+const clearCookie = function() {
+    document.cookie = 'trackhistory=[]'
+    $("#recentlyPlayed").empty();
 }
 

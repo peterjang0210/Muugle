@@ -256,6 +256,27 @@ const playSong = function () {
             const artistName = response.artists[0].name;
             infoPull(songName, artistName);
             storeCookie(trackID, songName, artistName);
+            renderCookie();
+        }
+    })
+}
+
+const playSongForRecentlyPlayed = function () {
+    const trackID = $(this).attr("data-trackID");
+    $('.spotifyPlayer').empty();
+    $(".spotifyPlayer").append(`<iframe id="spotify-player" src="https://open.spotify.com/embed/track/${trackID}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    const accessToken = parseAccessToken();
+    $.ajax({
+        url: `https://api.spotify.com/v1/tracks/${trackID}`,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        method: "GET",
+        success: function (response) {
+            const songName = response.name;
+            const artistName = response.artists[0].name;
+            infoPull(songName, artistName);
+            renderCookie();
         }
     })
 }
@@ -276,4 +297,6 @@ $(`.songList`).on('click', ".playSong", playSong);
 $(`.songList`).on('click', ".addToPlaylist", addToPlaylist);
 $(".songList").on("click", ".deleteFromPlaylist", deleteFromPlaylist);
 $(`.playlist`).on("click", ".addPlaylist", embedPlaylist);
-$(`#recentlyPlayed`).on('click', ".playSong", playSong);
+
+$(`#recentlyPlayed`).on('click', ".playSong", playSongForRecentlyPlayed);
+$("#clearButton").click(clearCookie);
