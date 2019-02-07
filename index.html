@@ -35,11 +35,9 @@
                     </a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">
+                            <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=https://peterjang0210.github.io/Music-Search-App/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">                                
                                 Login to Spotify</a>
                         </li>
-                        <!-- <a class="nav-link sidenav redirect" data-value="portfolio" href="https://accounts.spotify.com/authorize?client_id=789d8e0f5720439eacbfb9d9c737bfac&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email%20playlist-modify-public&response_type=token&state=123">Login
-                                to Spotify</a> -->
                         <li class="nav-item">
                             <a class="nav-link" data-value="about" href="about.html">About</a> </li>
                         <li class="nav-item">
@@ -58,7 +56,7 @@
         </header>
         <div>
             <div class="row justify-content-end mt-4 ml-3 mr-3">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 column0">
+                <div class="column0 overflow-auto col-xs-12 col-sm-12 col-md-12 col-lg-6">
                     <p>
                         <h2 class="p-3">Muugle, Get Started!</h2>
                     </p>
@@ -127,7 +125,7 @@
                     <hr>
                     <div class="spotifyPlayer"></div>
                 </div>
-                <div class="column1 col-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
+                <div class="column1  amncol-xs-12 col-sm-12 col-md-5 col-lg mt-4 ml-3 mr-3">
                     <h2>Playlist</h2>
                     <hr>
                     <div class="playlistHead">
@@ -135,13 +133,12 @@
                         <button class="btn" id="displayBtn">Display Playlists</button>
                     </div>
                     <hr>
-                    <div class="playlist"></div>
+                    <div class="playlist overflow-auto"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="column4 overflow-auto col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-4 ml-3 mr-3 recentlySearched">
                     <h2 class="p-3">Recently Played</h2>
-                    <p class="p-3">History of your recently played songs</p>
                     <span class="clearSection">
                         <button class="btn btn-primary" id="clearButton">Clear History</button>
                     </span>

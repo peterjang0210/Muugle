@@ -9,17 +9,11 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     background-image: url("antique-black-and-white-classic-1021876.jpg");
-
+    overflow: auto;
 }
 
 .row {
     flex: 1;
-    /* background-color: #B4B7BA;
-    background-image: url("antique-black-and-white-classic-1021876.jpg");
-    background-position: left bottom;
-    background-size: 4000px 3000px;
-    color: #1D1E2C; */
-
 }
 
 
@@ -50,7 +44,6 @@ html, body {
     width: auto;
     background-color: #B4B7BA;
     opacity: 0.9;
-    overflow: auto;
     margin-bottom: 10px;
     border-radius: 30px;
 }
@@ -73,8 +66,8 @@ html, body {
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: center;
+    overflow: auto;
     box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    overflow: hidden;
 }
 
 .column2, .column4 {
@@ -287,10 +280,6 @@ iframe{
     height: 270px;
 }
 
-/* .songlist {
-    overflow: auto;
-} */
-
 .spotifyPlayer{
     height: 330px;
 }
@@ -315,6 +304,10 @@ iframe{
     font-size: 25px;
 }
 
+.meta, .lyrics {
+    background-color: #F0EAD6;
+}
+
 .albumName {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -327,8 +320,9 @@ iframe{
 
 .lyricsBody {
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
     height: 250px;
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 #clearSection {
