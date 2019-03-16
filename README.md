@@ -16,3 +16,6 @@ New Technologies: OAuth in Spotify API, cookies to store recently played, lodash
 
 ## Future Developments
 The true end goal of this application is to link other various music API's such as Apple Music and Soundcloud. The user will be able to create a playlist independent of those streaming platforms where they can add songs from any of the linked music streaming sources. Another feature that can be developed is the ability to view songs from similar genres and artists.
+
+## Deployed Link
+Link: [Muugle](https://peterjang0210.github.io/Muugle/)
